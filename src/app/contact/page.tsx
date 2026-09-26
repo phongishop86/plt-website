@@ -7,9 +7,7 @@ import {
   Phone, 
   MapPin, 
   Mail, 
-  Linkedin, 
   Briefcase, 
-  GraduationCap, 
   Award, 
   UserCircle2
 } from "lucide-react";
