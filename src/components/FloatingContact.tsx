@@ -1,33 +1,28 @@
-"use client";
-
-import { Phone, MessageCircle, Mail, MapPin } from "lucide-react";
+import { Phone, MapPin, MessageCircle } from "lucide-react";
 
 export function FloatingContact() {
   return (
-    <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-      <a href="tel:0932685794" className="w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-secondary/90 transition-colors group relative">
-        <Phone className="w-5 h-5" />
-        <span className="absolute right-14 bg-black text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-          Gọi Hotline
-        </span>
-      </a>
-      <a href="https://zalo.me/0932685794" target="_blank" rel="noreferrer" className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors group relative">
-        <MessageCircle className="w-5 h-5" />
-        <span className="absolute right-14 bg-black text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+    <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
+      <a 
+        href="https://zalo.me/0932685794" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="w-14 h-14 bg-[#0068FF] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,104,255,0.4)] hover:scale-110 hover:-translate-y-1 transition-all group relative"
+      >
+        <span className="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg pointer-events-none">
           Chat Zalo
         </span>
+        <MessageCircle className="w-6 h-6" />
       </a>
-      <a href="mailto:phatloctech.ltd@gmail.com" className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg hover:bg-accent/90 transition-colors group relative">
-        <Mail className="w-5 h-5" />
-        <span className="absolute right-14 bg-black text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-          Gửi Email
+      
+      <a 
+        href="tel:0932685794" 
+        className="w-14 h-14 bg-[#FF6900] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,105,0,0.4)] hover:scale-110 hover:-translate-y-1 transition-all animate-pulse group relative"
+      >
+        <span className="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg pointer-events-none">
+          Gọi Ngay: 0932.685.794
         </span>
-      </a>
-      <a href="#" className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors group relative">
-        <MapPin className="w-5 h-5" />
-        <span className="absolute right-14 bg-black text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-          Chỉ đường
-        </span>
+        <Phone className="w-6 h-6" />
       </a>
     </div>
   );

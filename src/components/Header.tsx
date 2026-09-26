@@ -3,25 +3,34 @@ import { Button } from "./ui/Button";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <img src="/logo.ico" alt="Phát Lộc Tech" className="h-10 w-auto" />
-          <span className="font-bold text-xl text-primary">Phát Lộc Tech</span>
-        </Link>
-        <nav className="hidden md:flex gap-6 items-center">
-          <Link href="/" className="text-sm font-medium hover:text-secondary transition-colors">Trang chủ</Link>
-          <Link href="/dich-vu/may-tinh" className="text-sm font-medium hover:text-secondary transition-colors">Giải pháp CNTT</Link>
-          <Link href="/bao-gia" className="text-sm font-medium hover:text-secondary transition-colors">Tra cứu báo giá</Link>
-          <Link href="/du-an" className="text-sm font-medium hover:text-secondary transition-colors">Dự án</Link>
-          <Link href="/tin-tuc" className="text-sm font-medium hover:text-secondary transition-colors">Tin tức</Link>
-        </nav>
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:flex flex-col text-right">
-            <span className="text-xs text-muted-foreground">Hotline 24/7</span>
-            <span className="text-sm font-bold text-primary">0932 685 794</span>
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur shadow-sm">
+      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-white rounded-lg shadow-sm border border-slate-100 flex items-center justify-center p-1">
+            <img src="/PLT-Logo-VNPT-final.png" alt="Phát Lộc Tech" className="w-full h-full object-contain" />
           </div>
-          <Button>Nhận tư vấn</Button>
+          <div className="flex flex-col">
+            <span className="font-black text-xl text-[#003388] tracking-tight leading-none">PHÁT LỘC TECH</span>
+            <span className="text-[10px] uppercase font-bold text-slate-500 mt-1 tracking-wider">Giải pháp CNTT Toàn Diện</span>
+          </div>
+        </Link>
+        <nav className="hidden lg:flex gap-8 items-center">
+          <Link href="/" className="text-sm font-bold text-[#003388] hover:text-[#0693E3] transition-colors">Trang chủ</Link>
+          <Link href="/#gioi-thieu" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Giới thiệu</Link>
+          <Link href="/#dich-vu" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Hệ sinh thái</Link>
+          <Link href="/#du-an" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Dự án</Link>
+          <Link href="/contact" className="text-sm font-bold text-[#FF6900] hover:text-[#e65c00] transition-colors">Contact</Link>
+        </nav>
+        <div className="flex items-center gap-6">
+          <div className="hidden md:flex flex-col text-right">
+            <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Hotline 24/7</span>
+            <span className="text-lg font-black text-[#FF6900] leading-none mt-1">0932 685 794</span>
+          </div>
+          <Link href="/contact">
+            <Button className="bg-gradient-to-r from-[#0693E3] to-[#003388] hover:opacity-90 text-white font-bold shadow-lg shadow-blue-500/30 border-0">
+              Nhận tư vấn
+            </Button>
+          </Link>
         </div>
       </div>
     </header>
