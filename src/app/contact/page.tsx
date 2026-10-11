@@ -181,12 +181,12 @@ export default function ContactPage() {
                   <div>
                     <label htmlFor="svc" className="block text-sm font-bold text-slate-700 mb-2">Loại dịch vụ quan tâm</label>
                     <select id="svc" name="svc" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]">
-                      <option>Máy tính & Laptop</option>
-                      <option>Camera giám sát</option>
-                      <option>Thiết bị văn phòng</option>
-                      <option>Hạ tầng mạng</option>
-                      <option>Dịch vụ IT Helpdesk</option>
-                      <option>Phần mềm & Số hóa</option>
+                      <option>Giải pháp AI Vận hành CNTT</option>
+                      <option>Hạ tầng mạng & Máy chủ</option>
+                      <option>Dịch vụ IT Helpdesk & Bảo trì</option>
+                      <option>Camera an ninh & Giám sát</option>
+                      <option>Máy tính & Thiết bị văn phòng</option>
+                      <option>Phần mềm & Số hóa doanh nghiệp</option>
                       <option>Khác</option>
                     </select>
                   </div>

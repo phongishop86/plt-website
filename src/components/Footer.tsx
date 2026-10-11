@@ -37,11 +37,12 @@ export function Footer() {
           <div className="lg:col-span-2 lg:col-start-6">
             <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Dịch Vụ Lõi</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Máy tính doanh nghiệp</Link></li>
-              <li><Link href="#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Camera giám sát</Link></li>
-              <li><Link href="#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Hạ tầng mạng LAN/WiFi</Link></li>
-              <li><Link href="#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Dịch vụ IT Helpdesk</Link></li>
-              <li><Link href="#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Thiết bị văn phòng</Link></li>
+              <li><Link href="/#giai-phap-ai" className="hover:text-[#0693E3] flex items-center gap-2 text-cyan-400 font-semibold"><ChevronRight className="w-4 h-4"/> Giải pháp AI Vận hành CNTT</Link></li>
+              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Hạ tầng mạng & Máy chủ</Link></li>
+              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Dịch vụ IT Helpdesk</Link></li>
+              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Camera an ninh giám sát</Link></li>
+              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Máy tính & TB văn phòng</Link></li>
+              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Phần mềm & Số hóa</Link></li>
             </ul>
           </div>
 
