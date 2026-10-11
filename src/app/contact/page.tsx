@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState, FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import { 
   Phone, 
@@ -13,53 +12,6 @@ import {
 } from "lucide-react";
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const data = {
-      name: formData.get("name")?.toString() || "",
-      phone: formData.get("phone")?.toString() || "",
-      email: formData.get("email")?.toString() || "",
-      service: formData.get("svc")?.toString() || "",
-      note: formData.get("note")?.toString() || "",
-    };
-    
-    setIsSubmitting(true);
-
-    try {
-      const res = await fetch("https://formsubmit.co/ajax/phatloctech.ltd@gmail.com", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json" 
-        },
-        body: JSON.stringify({
-          "Họ và Tên": data.name,
-          "Số điện thoại": data.phone,
-          "Email": data.email || "Không cung cấp",
-          "Dịch vụ quan tâm": data.service,
-          "Chi tiết nhu cầu": data.note || "Không có ghi chú thêm",
-          _subject: `[Phát Lộc Tech - Liên Hệ] Yêu cầu từ ${data.name} (${data.phone})`,
-          _template: "table",
-          _captcha: "false"
-        }),
-      });
-
-      if (res.ok) {
-        alert("Gửi yêu cầu thành công! Phát Lộc Tech đã nhận được thông tin và sẽ liên hệ hỗ trợ bạn sớm nhất.");
-        form.reset();
-      } else {
-        alert("Gửi chưa thành công, vui lòng thử lại hoặc liên hệ Hotline 0932 685 794.");
-      }
-    } catch (err) {
-      alert("Không thể kết nối máy chủ gửi tin. Vui lòng gọi trực tiếp Hotline 0932 685 794.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 font-sans">
@@ -182,24 +134,34 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-black text-[#003388] mb-2">Gửi Yêu Cầu Cho Chúng Tôi</h3>
                 <p className="text-slate-500 mb-8">Chúng tôi sẽ phản hồi yêu cầu của bạn trong vòng 30 phút (giờ hành chính).</p>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  action="https://formsubmit.co/phatloctech.ltd@gmail.com" 
+                  method="POST" 
+                  className="space-y-6"
+                >
+                  {/* FormSubmit Configurations */}
+                  <input type="hidden" name="_subject" value="[Phát Lộc Tech - Trang Liên Hệ] Yêu Cầu Tư Vấn Mới" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" value="https://phatloctech.vn/contact" />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-2">Họ và Tên *</label>
-                      <input id="name" name="name" type="text" placeholder="Nhập họ tên" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
+                      <input id="name" name="Họ và Tên" type="text" placeholder="Nhập họ tên" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-2">Số điện thoại *</label>
-                      <input id="phone" name="phone" type="tel" placeholder="09xx xxx xxx" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
+                      <input id="phone" name="Số điện thoại" type="tel" placeholder="09xx xxx xxx" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">Email</label>
-                    <input id="email" name="email" type="email" placeholder="ban@congty.vn" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
+                    <input id="email" name="Email" type="email" placeholder="ban@congty.vn" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
                   </div>
                   <div>
                     <label htmlFor="svc" className="block text-sm font-bold text-slate-700 mb-2">Loại dịch vụ quan tâm</label>
-                    <select id="svc" name="svc" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]">
+                    <select id="svc" name="Loại dịch vụ quan tâm" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]">
                       <option>Giải pháp AI Vận hành CNTT</option>
                       <option>Hạ tầng mạng & Máy chủ</option>
                       <option>Dịch vụ IT Helpdesk & Bảo trì</option>
@@ -211,14 +173,13 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label htmlFor="note" className="block text-sm font-bold text-slate-700 mb-2">Chi tiết nhu cầu</label>
-                    <textarea id="note" name="note" rows={4} placeholder="Ví dụ: Cần lắp 8 camera cho nhà xưởng..." className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]"></textarea>
+                    <textarea id="note" name="Chi tiết nhu cầu" rows={4} placeholder="Ví dụ: Cần tư vấn giải pháp IT cho văn phòng..." className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]"></textarea>
                   </div>
                   <Button 
                     type="submit" 
-                    disabled={isSubmitting}
-                    className="w-full py-6 text-lg font-bold bg-gradient-to-r from-[#0693E3] to-[#003388] text-white rounded-xl shadow-lg shadow-blue-500/30 border-0 hover:opacity-90 disabled:opacity-50"
+                    className="w-full py-6 text-lg font-bold bg-gradient-to-r from-[#0693E3] to-[#003388] text-white rounded-xl shadow-lg shadow-blue-500/30 border-0 hover:opacity-90"
                   >
-                    {isSubmitting ? "Đang gửi yêu cầu..." : "Gửi Yêu Cầu"}
+                    Gửi Yêu Cầu
                   </Button>
                 </form>
               </div>
