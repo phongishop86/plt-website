@@ -11,13 +11,16 @@ export function Header() {
           </div>
           <div className="flex flex-col">
             <span className="font-black text-xl text-[#003388] tracking-tight leading-none">PHÁT LỘC TECH</span>
-            <span className="text-[10px] uppercase font-bold text-slate-500 mt-1 tracking-wider">Giải pháp CNTT Toàn Diện</span>
+            <span className="text-[10px] uppercase font-bold text-slate-500 mt-1 tracking-wider">Giải pháp AI & Hạ tầng CNTT</span>
           </div>
         </Link>
         <nav className="hidden lg:flex gap-8 items-center">
           <Link href="/" className="text-sm font-bold text-[#003388] hover:text-[#0693E3] transition-colors">Trang chủ</Link>
-          <Link href="/#gioi-thieu" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Giới thiệu</Link>
-          <Link href="/#dich-vu" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Hệ sinh thái</Link>
+          <Link href="/#giai-phap-ai" className="text-sm font-bold text-[#0693E3] hover:text-[#003388] transition-colors flex items-center gap-1.5 bg-blue-50/80 px-3 py-1.5 rounded-full border border-blue-200">
+            <span className="w-2 h-2 rounded-full bg-[#0693E3] animate-pulse"></span>
+            Giải pháp AI
+          </Link>
+          <Link href="/#dich-vu" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Hệ sinh thái CNTT</Link>
           <Link href="/#du-an" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Dự án</Link>
           <Link href="/contact" className="text-sm font-bold text-[#FF6900] hover:text-[#e65c00] transition-colors">Contact</Link>
         </nav>

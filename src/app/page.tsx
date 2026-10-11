@@ -8,7 +8,8 @@ import { ContactButton } from "@/components/ContactButton";
 import { 
   Monitor, Server, Shield, Cloud, Code, FileDigit, Search, FileText, Wrench, 
   Handshake, CheckCircle, HeadphonesIcon, TrendingUp, Cpu, HardDrive, Printer, 
-  MemoryStick, ChevronRight, Laptop, Users, Building, ArrowRight, Quote, Zap
+  MemoryStick, ChevronRight, Laptop, Users, Building, ArrowRight, Quote, Zap,
+  Bot, Sparkles, Lock, ShieldCheck, Database, Layers
 } from "lucide-react";
 
 export default function Home() {
@@ -90,31 +91,35 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#001533] via-[#001533]/80 to-transparent z-0"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight uppercase">
-              Công nghệ toàn diện<br/>
-              <span className="text-[#0693E3] drop-shadow-[0_0_15px_rgba(6,147,227,0.5)] inline-block mt-2">Giải pháp bền vững</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-[#0693E3]/30 backdrop-blur-md mb-6">
+              <Sparkles className="w-4 h-4 text-[#0693E3] animate-pulse" />
+              <span className="text-xs md:text-sm font-bold text-blue-200 uppercase tracking-widest">
+                Đổi Mới Sáng Tạo • Ứng Dụng Nền Tảng Claude AI
+              </span>
+            </div>
+
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tight uppercase">
+              Giải Pháp AI Vận Hành CNTT<br/>
+              <span className="text-[#0693E3] drop-shadow-[0_0_20px_rgba(6,147,227,0.6)] inline-block mt-2">
+                Cho Ngân Hàng & Doanh Nghiệp
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-              <Zap className="text-[#FF6900] w-6 h-6" /> Đội ngũ tận tâm – Phản hồi nhanh – Giá minh bạch
-            </p>
-            <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl leading-relaxed">
-              Phát Lộc Tech đồng hành cùng doanh nghiệp vừa và nhỏ từ máy tính, camera, hạ tầng mạng đến giải pháp chuyển đổi số chuyên nghiệp.
+            <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl leading-relaxed">
+              Phát Lộc Tech phát triển các giải pháp trợ lý AI thông minh tích hợp trên nền tảng Claude, hỗ trợ đội ngũ IT tra cứu tài liệu kỹ thuật, tự động hóa tác nghiệp và chuẩn hóa hạ tầng số doanh nghiệp với tiêu chuẩn bảo mật khắt khe nhất.
             </p>
             
             <div className="flex flex-wrap gap-4 mb-16">
-              <Link href="#bao-gia">
-                <Button size="lg" className="bg-[#FF6900] hover:bg-[#e65c00] text-white shadow-[0_0_20px_rgba(255,105,0,0.4)] px-8 py-6 text-lg rounded-xl h-full">
-                  Nhận tư vấn ngay
+              <Link href="#giai-phap-ai">
+                <Button size="lg" className="bg-[#FF6900] hover:bg-[#e65c00] text-white shadow-[0_0_20px_rgba(255,105,0,0.4)] px-8 py-6 text-lg rounded-xl h-full font-bold flex items-center gap-2">
+                  <Bot className="w-5 h-5" /> Khám phá Giải pháp AI
                 </Button>
               </Link>
-              <Link href="#du-an">
-                <Button size="lg" variant="outline" className="bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-sm px-8 py-6 text-lg rounded-xl h-full">
-                  Xem dự án thực tế
+              <Link href="#dich-vu">
+                <Button size="lg" variant="outline" className="bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-sm px-8 py-6 text-lg rounded-xl h-full font-bold">
+                  Hệ sinh thái CNTT
                 </Button>
               </Link>
             </div>
-          </div>
         </div>
       </section>
 
@@ -145,6 +150,151 @@ export default function Home() {
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Hỗ Trợ Kỹ Thuật</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* AI SOLUTIONS SECTION - POWERED BY CLAUDE */}
+      <section id="giai-phap-ai" className="py-24 bg-gradient-to-b from-[#001533] via-[#002244] to-[#001533] text-white relative overflow-hidden">
+        {/* Decorative Grid & Glows */}
+        <div className="absolute inset-0 bg-[radial-gradient(#0693E3_1px,transparent_1px)] [background-size:32px_32px] opacity-15"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#0693E3]/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0693E3]/15 border border-[#0693E3]/30 text-[#0693E3] text-xs md:text-sm font-bold uppercase tracking-wider mb-4">
+              <Sparkles className="w-4 h-4" /> Powered by Claude AI
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black mb-6 uppercase tracking-wide">
+              Hệ Thống Trợ Lý AI & <span className="text-[#0693E3]">Lộ Trình Phát Triển</span>
+            </h2>
+            <p className="text-slate-300 text-lg leading-relaxed max-w-3xl mx-auto">
+              Định vị trở thành đối tác tiên phong ứng dụng trí tuệ nhân tạo (Claude AI) vào quản trị hạ tầng, hỗ trợ vận hành tác nghiệp cho các tổ chức tài chính, ngân hàng và doanh nghiệp.
+            </p>
+          </div>
+
+          {/* 3 Pillars / Phases Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            
+            {/* Phase 1 */}
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md hover:border-[#0693E3]/50 transition-all hover:-translate-y-1 group relative flex flex-col justify-between">
+              <div className="absolute top-6 right-6 px-3 py-1 bg-[#FF6900] text-white text-xs font-black uppercase rounded-full shadow-lg">
+                Ưu tiên cốt lõi
+              </div>
+              <div>
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0693E3] to-[#003388] flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
+                  <Bot className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-xs font-bold text-[#0693E3] uppercase tracking-wider mb-2">Giai đoạn 1</div>
+                <h3 className="text-2xl font-black mb-4 text-white">AI IT Assistant</h3>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                  Trợ lý thông minh đồng hành cùng kỹ sư IT ngân hàng & doanh nghiệp tra cứu quy trình, hướng dẫn chẩn đoán sự cố phần cứng/mạng và tự động soạn thảo báo cáo bảo trì định kỳ.
+                </p>
+                <ul className="space-y-3 text-sm text-slate-300 mb-6">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#0693E3] shrink-0 mt-0.5" />
+                    <span>Hướng dẫn troubleshooting mạng/máy chủ từng bước</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#0693E3] shrink-0 mt-0.5" />
+                    <span>Tra cứu tài liệu quy trình chuẩn (SOP) theo ngữ cảnh</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#0693E3] shrink-0 mt-0.5" />
+                    <span>Tự động tổng hợp log sự cố & lập báo cáo kỹ thuật</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="pt-4 border-t border-white/10 text-xs text-blue-200 font-semibold">
+                🎯 Mục tiêu: Giảm 60% thời gian phản hồi sự cố (MTTR)
+              </div>
+            </div>
+
+            {/* Phase 2 */}
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md hover:border-[#0693E3]/50 transition-all hover:-translate-y-1 group relative flex flex-col justify-between">
+              <div>
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                  <Database className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Giai đoạn 2</div>
+                <h3 className="text-2xl font-black mb-4 text-white">Knowledge Search & Automation</h3>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                  Hệ thống tìm kiếm ngữ nghĩa thông minh và tự động hóa tác nghiệp lặp lại. Phân loại ticket và điều phối yêu cầu hỗ trợ kỹ thuật tự động.
+                </p>
+                <ul className="space-y-3 text-sm text-slate-300 mb-6">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                    <span>Tìm kiếm ngữ nghĩa tài liệu kỹ thuật bảo mật nội bộ</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                    <span>Tự động phân loại & định tuyến ticket hỗ trợ IT</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                    <span>Kiểm soát phân quyền chặt chẽ (RBAC) cho ngân hàng</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="pt-4 border-t border-white/10 text-xs text-indigo-200 font-semibold">
+                🎯 Mục tiêu: Tự động hóa 70% các tác vụ tra cứu & báo cáo
+              </div>
+            </div>
+
+            {/* Phase 3 */}
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md hover:border-[#0693E3]/50 transition-all hover:-translate-y-1 group relative flex flex-col justify-between">
+              <div>
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 shadow-lg shadow-teal-500/20 group-hover:scale-110 transition-transform">
+                  <Layers className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Giai đoạn 3</div>
+                <h3 className="text-2xl font-black mb-4 text-white">Digital Solutions & Ecosystem</h3>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                  Tích hợp trợ lý AI thông minh vào hệ thống website doanh nghiệp và các nền tảng số hóa quản trị tác nghiệp chuyên biệt.
+                </p>
+                <ul className="space-y-3 text-sm text-slate-300 mb-6">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Phát triển website thông minh tích hợp trợ lý Claude</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Hệ thống quản lý đăng ký & điều hành hội thao doanh nghiệp</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Tự động hóa bốc thăm, xếp lịch và cập nhật kết quả thi đấu</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="pt-4 border-t border-white/10 text-xs text-emerald-200 font-semibold">
+                🎯 Mục tiêu: Hệ sinh thái chuyển đổi số doanh nghiệp toàn diện
+              </div>
+            </div>
+
+          </div>
+
+          {/* BANKING DATA SECURITY BANNER */}
+          <div className="bg-gradient-to-r from-blue-950 to-slate-900 border border-[#0693E3]/30 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+            <div className="flex items-start gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-[#0693E3]/20 border border-[#0693E3]/40 flex items-center justify-center text-[#0693E3] shrink-0">
+                <Lock className="w-7 h-7" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                  Cam Kết Bảo Mật Chuẩn Ngân Hàng & Quyền Riêng Tư Dữ Liệu
+                </h4>
+                <p className="text-slate-300 text-sm leading-relaxed max-w-3xl">
+                  Các giải pháp AI của Phát Lộc Tech được thiết kế theo nguyên tắc <strong>Privacy-First & Zero Data Retention</strong>: Dữ liệu kỹ thuật và truy vấn nội bộ của ngân hàng tuyệt đối không được dùng để tái huấn luyện mô hình. Mã hóa toàn diện chuẩn TLS 1.3 và AES-256.
+                </p>
+              </div>
+            </div>
+            <Link href="#bao-gia" className="shrink-0">
+              <Button className="bg-[#0693E3] hover:bg-[#003388] text-white font-bold px-6 py-6 rounded-xl shadow-lg shadow-blue-500/30 border-0">
+                Tư vấn giải pháp AI
+              </Button>
+            </Link>
+          </div>
+
         </div>
       </section>
 
