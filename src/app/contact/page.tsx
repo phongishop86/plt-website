@@ -132,13 +132,13 @@ export default function ContactPage() {
                       </div>
                     </a>
                     
-                    <a href="mailto:phatloctech.ltd@gmail.com" className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group">
+                    <a href="mailto:info@phatloctech.vn" className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group">
                       <div className="w-10 h-10 rounded-full bg-[#0693E3] flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
                         <Mail className="w-5 h-5" />
                       </div>
                       <div>
                         <p className="text-xs text-slate-400 font-medium">Email</p>
-                        <p className="font-bold text-slate-800">phatloctech.ltd@gmail.com</p>
+                        <p className="font-bold text-slate-800">info@phatloctech.vn</p>
                       </div>
                     </a>
                   </div>

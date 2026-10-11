@@ -124,19 +124,19 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 divide-x divide-white/20 text-white">
             <div className="flex flex-col items-center justify-center">
               <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md">
-                <span className="count" data-target="3" ref={(el) => { if(el) counterRefs.current[0] = el; }}>0</span>+
+                <span className="count" data-target="3" ref={(el) => { if(el) counterRefs.current[0] = el; }}>3</span>+
               </div>
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Năm Kinh Nghiệm</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md">
-                <span className="count" data-target="30" ref={(el) => { if(el) counterRefs.current[1] = el; }}>0</span>+
+                <span className="count" data-target="30" ref={(el) => { if(el) counterRefs.current[1] = el; }}>30</span>+
               </div>
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Khách Hàng B2B</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md">
-                <span className="count" data-target="100" ref={(el) => { if(el) counterRefs.current[2] = el; }}>0</span>+
+                <span className="count" data-target="100" ref={(el) => { if(el) counterRefs.current[2] = el; }}>100</span>+
               </div>
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Thiết Bị Lắp Đặt</p>
             </div>
