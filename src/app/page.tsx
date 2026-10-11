@@ -101,7 +101,7 @@ export default function Home() {
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tight uppercase">
               Giải Pháp AI Vận Hành CNTT<br/>
               <span className="text-[#0693E3] drop-shadow-[0_0_20px_rgba(6,147,227,0.6)] inline-block mt-2">
-                Cho Ngân Hàng & Doanh Nghiệp
+                Cho Doanh Nghiệp & Tổ Chức
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl leading-relaxed">
@@ -168,7 +168,7 @@ export default function Home() {
               Hệ Thống Trợ Lý AI & <span className="text-[#0693E3]">Lộ Trình Phát Triển</span>
             </h2>
             <p className="text-slate-300 text-lg leading-relaxed max-w-3xl mx-auto">
-              Định vị trở thành đối tác tiên phong ứng dụng trí tuệ nhân tạo (Claude AI) vào quản trị hạ tầng, hỗ trợ vận hành tác nghiệp cho các tổ chức tài chính, ngân hàng và doanh nghiệp.
+              Định vị trở thành đối tác tiên phong ứng dụng trí tuệ nhân tạo (Claude AI) vào quản trị hạ tầng, hỗ trợ vận hành tác nghiệp cho các doanh nghiệp và tổ chức quy mô vừa và lớn.
             </p>
           </div>
 
@@ -187,7 +187,7 @@ export default function Home() {
                 <div className="text-xs font-bold text-[#0693E3] uppercase tracking-wider mb-2">Giai đoạn 1</div>
                 <h3 className="text-2xl font-black mb-4 text-white">AI IT Assistant</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                  Trợ lý thông minh đồng hành cùng kỹ sư IT ngân hàng & doanh nghiệp tra cứu quy trình, hướng dẫn chẩn đoán sự cố phần cứng/mạng và tự động soạn thảo báo cáo bảo trì định kỳ.
+                  Trợ lý thông minh đồng hành cùng đội ngũ kỹ sư IT doanh nghiệp tra cứu quy trình, hướng dẫn chẩn đoán sự cố phần cứng/mạng và tự động soạn thảo báo cáo bảo trì định kỳ.
                 </p>
                 <ul className="space-y-3 text-sm text-slate-300 mb-6">
                   <li className="flex items-start gap-2">
@@ -231,7 +231,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
-                    <span>Kiểm soát phân quyền chặt chẽ (RBAC) cho ngân hàng</span>
+                    <span>Kiểm soát phân quyền chặt chẽ (RBAC) chuẩn doanh nghiệp</span>
                   </li>
                 </ul>
               </div>
@@ -273,7 +273,7 @@ export default function Home() {
 
           </div>
 
-          {/* BANKING DATA SECURITY BANNER */}
+          {/* ENTERPRISE DATA SECURITY BANNER */}
           <div className="bg-gradient-to-r from-blue-950 to-slate-900 border border-[#0693E3]/30 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
             <div className="flex items-start gap-5">
               <div className="w-14 h-14 rounded-2xl bg-[#0693E3]/20 border border-[#0693E3]/40 flex items-center justify-center text-[#0693E3] shrink-0">
@@ -281,10 +281,10 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                  Cam Kết Bảo Mật Chuẩn Ngân Hàng & Quyền Riêng Tư Dữ Liệu
+                  Cam Kết Bảo Mật Cấp Doanh Nghiệp & Quyền Riêng Tư Dữ Liệu
                 </h4>
                 <p className="text-slate-300 text-sm leading-relaxed max-w-3xl">
-                  Các giải pháp AI của Phát Lộc Tech được thiết kế theo nguyên tắc <strong>Privacy-First & Zero Data Retention</strong>: Dữ liệu kỹ thuật và truy vấn nội bộ của ngân hàng tuyệt đối không được dùng để tái huấn luyện mô hình. Mã hóa toàn diện chuẩn TLS 1.3 và AES-256.
+                  Các giải pháp AI của Phát Lộc Tech được thiết kế theo nguyên tắc <strong>Privacy-First & Zero Data Retention</strong>: Dữ liệu kỹ thuật và truy vấn nội bộ của doanh nghiệp tuyệt đối không được dùng để tái huấn luyện mô hình. Mã hóa toàn diện chuẩn TLS 1.3 và AES-256.
                 </p>
               </div>
             </div>
@@ -496,8 +496,8 @@ export default function Home() {
                 <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">HẠ TẦNG & MÁY CHỦ</span>
               </div>
               <div className="p-8">
-                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Bảo trì hệ thống máy chủ cho Ngân hàng hàng đầu Việt Nam</h3>
-                <p className="text-slate-600 text-sm mb-6">Quản trị, kiểm tra an toàn định kỳ, tối ưu hóa hiệu năng hệ thống server và bảo đảm tính sẵn sàng cao (High Availability) phục vụ tác nghiệp ngân hàng 24/7.</p>
+                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Bảo trì hệ thống máy chủ cho Doanh nghiệp quy mô lớn</h3>
+                <p className="text-slate-600 text-sm mb-6">Quản trị, kiểm tra an toàn định kỳ, tối ưu hóa hiệu năng hệ thống server và bảo đảm tính sẵn sàng cao (High Availability) phục vụ tác nghiệp doanh nghiệp 24/7.</p>
                 <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer group-hover:gap-3 transition-all">
                   Xem chi tiết <ArrowRight className="w-4 h-4" />
                 </div>
@@ -512,7 +512,7 @@ export default function Home() {
                 <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">HỆ THỐNG AN NINH</span>
               </div>
               <div className="p-8">
-                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Thi công hệ thống an ninh cho Công ty TNHH Công nghệ Nano Hợp nhất APA</h3>
+                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Thi công hệ thống an ninh cho Công ty Công nghệ APA</h3>
                 <p className="text-slate-600 text-sm mb-6">Triển khai hệ thống camera IP giám sát thông minh, kiểm soát an ninh đa tầng và lưu trữ dữ liệu tập trung phục vụ sản xuất công nghệ cao.</p>
                 <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer group-hover:gap-3 transition-all">
                   Xem chi tiết <ArrowRight className="w-4 h-4" />
@@ -555,7 +555,7 @@ export default function Home() {
                 <div className="w-12 h-12 bg-gradient-to-br from-[#0693E3] to-[#003388] rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">M</div>
                 <div>
                   <h4 className="font-bold text-white">Anh Trần Minh</h4>
-                  <p className="text-sm text-slate-400">Kỹ sư Vận hành Hạ tầng CNTT</p>
+                  <p className="text-sm text-slate-400">Trưởng nhóm Kỹ thuật Hệ thống, Doanh nghiệp TM&DV</p>
                 </div>
               </div>
             </div>
@@ -567,7 +567,7 @@ export default function Home() {
                 <div className="w-12 h-12 bg-gradient-to-br from-[#FF6900] to-red-600 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">N</div>
                 <div>
                   <h4 className="font-bold text-white">Anh Hoàng Nam</h4>
-                  <p className="text-sm text-slate-400">Phụ trách Vận hành, Cty Nano Hợp nhất APA</p>
+                  <p className="text-sm text-slate-400">Phụ trách Vận hành, Công ty Công nghệ APA</p>
                 </div>
               </div>
             </div>
