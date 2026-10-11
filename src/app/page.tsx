@@ -493,11 +493,11 @@ export default function Home() {
               <div className="h-56 bg-[#001533] relative flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(#1e3a6a_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
                 <Server className="w-20 h-20 text-[#0693E3] group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
-                <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">HẠ TẦNG MẠNG</span>
+                <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">HẠ TẦNG & MÁY CHỦ</span>
               </div>
               <div className="p-8">
-                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Hệ thống mạng văn phòng - TNHH TM Sao Việt</h3>
-                <p className="text-slate-600 text-sm mb-6">Thiết kế lại sơ đồ mạng, thay thế switch cũ, phủ sóng WiFi ổn định cho 40 nhân sự và lắp đặt tủ mạng gọn gàng.</p>
+                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Bảo trì hệ thống máy chủ cho Ngân hàng hàng đầu Việt Nam</h3>
+                <p className="text-slate-600 text-sm mb-6">Quản trị, kiểm tra an toàn định kỳ, tối ưu hóa hiệu năng hệ thống server và bảo đảm tính sẵn sàng cao (High Availability) phục vụ tác nghiệp ngân hàng 24/7.</p>
                 <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer group-hover:gap-3 transition-all">
                   Xem chi tiết <ArrowRight className="w-4 h-4" />
                 </div>
@@ -509,11 +509,11 @@ export default function Home() {
               <div className="h-56 bg-[#001533] relative flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(#1e3a6a_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
                 <Shield className="w-20 h-20 text-[#0693E3] group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
-                <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">CAMERA GIÁM SÁT</span>
+                <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">HỆ THỐNG AN NINH</span>
               </div>
               <div className="p-8">
-                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Hệ thống an ninh - Xưởng may Bình Tân</h3>
-                <p className="text-slate-600 text-sm mb-6">Triển khai 24 camera IP độ phân giải cao, hồng ngoại ban đêm bao quát toàn bộ khu vực xưởng sản xuất 1000m2.</p>
+                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Thi công hệ thống an ninh cho Công ty TNHH Công nghệ Nano Hợp nhất APA</h3>
+                <p className="text-slate-600 text-sm mb-6">Triển khai hệ thống camera IP giám sát thông minh, kiểm soát an ninh đa tầng và lưu trữ dữ liệu tập trung phục vụ sản xuất công nghệ cao.</p>
                 <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer group-hover:gap-3 transition-all">
                   Xem chi tiết <ArrowRight className="w-4 h-4" />
                 </div>
@@ -525,11 +525,11 @@ export default function Home() {
               <div className="h-56 bg-[#001533] relative flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(#1e3a6a_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
                 <Monitor className="w-20 h-20 text-[#0693E3] group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
-                <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">MÁY TÍNH DOANH NGHIỆP</span>
+                <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">TRANG BỊ MÁY TÍNH</span>
               </div>
               <div className="p-8">
-                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Trang bị dàn PC - Đại lý An Phát</h3>
-                <p className="text-slate-600 text-sm mb-6">Cung cấp và setup 15 bộ máy tính đồng bộ cấu hình văn phòng cùng máy in mạng dùng chung cho chi nhánh mới.</p>
+                <h3 className="font-black text-xl text-[#003388] mb-3 leading-snug">Cung cấp, trang bị máy tính cho các trường học trên địa bàn</h3>
+                <p className="text-slate-600 text-sm mb-6">Cung cấp và lắp đặt đồng bộ phòng máy tính chuyên dụng, cấu hình mạng nội bộ và hỗ trợ kỹ thuật phục vụ công tác giảng dạy tin học.</p>
                 <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer group-hover:gap-3 transition-all">
                   Xem chi tiết <ArrowRight className="w-4 h-4" />
                 </div>
