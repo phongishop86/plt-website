@@ -355,15 +355,15 @@ export default function Home() {
               {/* LEFT COLUMN */}
               <div className="flex flex-col gap-6 lg:gap-16">
                 <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-8 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center flex-shrink-0">
-                    <Laptop className="w-10 h-10 text-white" />
+                  <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-[#0693E3] to-[#003388] flex items-center justify-center flex-shrink-0">
+                    <Bot className="w-10 h-10 text-white" />
                   </div>
                   <div className="pl-6 py-4 flex-1">
-                    <h4 className="font-black text-lg text-pink-600 uppercase mb-1">Máy tính & Laptop</h4>
-                    <p className="text-sm text-slate-600 hidden md:block">Cung cấp máy tính văn phòng, laptop doanh nghiệp.</p>
+                    <h4 className="font-black text-lg text-[#003388] uppercase mb-1">Giải Pháp AI Vận Hành CNTT</h4>
+                    <p className="text-sm text-slate-600 hidden md:block">Trợ lý AI hỗ trợ tra cứu kỹ thuật & tự động hóa tác nghiệp.</p>
                   </div>
-                  <div className="hidden lg:block absolute right-0 top-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent to-pink-500 translate-x-full z-0">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-pink-500 shadow-[0_0_10px_#ec4899]"></div>
+                  <div className="hidden lg:block absolute right-0 top-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent to-[#0693E3] translate-x-full z-0">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#0693E3] shadow-[0_0_10px_#0693e3]"></div>
                   </div>
                 </div>
 
@@ -382,11 +382,11 @@ export default function Home() {
 
                 <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-8 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
                   <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-cyan-500 to-blue-400 flex items-center justify-center flex-shrink-0">
-                    <Printer className="w-10 h-10 text-white" />
+                    <Laptop className="w-10 h-10 text-white" />
                   </div>
                   <div className="pl-6 py-4 flex-1">
-                    <h4 className="font-black text-lg text-cyan-600 uppercase mb-1">Thiết bị văn phòng</h4>
-                    <p className="text-sm text-slate-600 hidden md:block">Máy in, máy chiếu, thiết bị phòng họp.</p>
+                    <h4 className="font-black text-lg text-cyan-600 uppercase mb-1">Máy Tính & TB Văn Phòng</h4>
+                    <p className="text-sm text-slate-600 hidden md:block">Cung cấp PC, Laptop, máy in, máy chiếu đồng bộ.</p>
                   </div>
                   <div className="hidden lg:block absolute right-0 top-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent to-cyan-500 translate-x-full z-0">
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-cyan-500 shadow-[0_0_10px_#06b6d4]"></div>
@@ -548,38 +548,38 @@ export default function Home() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative">
+            <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative flex flex-col justify-between">
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/10" />
-              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-lg">"Đội kỹ thuật khảo sát kỹ trước khi báo giá, không đội chi phí lên như một số nơi mình từng làm việc. Rất an tâm."</p>
+              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">"Hệ thống máy chủ yêu cầu tính ổn định rất cao và quy trình nghiêm ngặt. Đội ngũ kỹ thuật Phát Lộc Tech phối hợp kiểm tra định kỳ đúng lịch, hỗ trợ kỹ thuật kịp thời khi có cảnh báo nên chúng tôi rất yên tâm trong ca trực."</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#0693E3] to-[#003388] rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">H</div>
+                <div className="w-12 h-12 bg-gradient-to-br from-[#0693E3] to-[#003388] rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">M</div>
                 <div>
-                  <h4 className="font-bold text-white">Chị Ngọc Hà</h4>
-                  <p className="text-sm text-slate-400">Chủ đại lý bảo hiểm An Phát</p>
+                  <h4 className="font-bold text-white">Anh Trần Minh</h4>
+                  <p className="text-sm text-slate-400">Kỹ sư Vận hành Hạ tầng CNTT</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative">
+            <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative flex flex-col justify-between">
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/10" />
-              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-lg">"Hệ thống camera lắp cho xưởng chạy ổn định, có sự cố là kỹ thuật viên hỗ trợ từ xa xử lý ngay lập tức."</p>
+              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">"Khu vực xưởng sản xuất công nghệ cao đòi hỏi camera bao quát góc rộng và quan sát rõ cả ban đêm. Các bạn thi công dây gọn gàng, hướng dẫn phần mềm xem trực tiếp trên điện thoại rất chi tiết, nhiệt tình."</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#FF6900] to-red-600 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">B</div>
+                <div className="w-12 h-12 bg-gradient-to-br from-[#FF6900] to-red-600 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">N</div>
                 <div>
-                  <h4 className="font-bold text-white">Anh Quốc Bảo</h4>
-                  <p className="text-sm text-slate-400">Quản lý xưởng may Bình Tân</p>
+                  <h4 className="font-bold text-white">Anh Hoàng Nam</h4>
+                  <p className="text-sm text-slate-400">Phụ trách Vận hành, Cty Nano Hợp nhất APA</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative">
+            <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative flex flex-col justify-between">
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/10" />
-              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-lg">"Là công ty mới nhưng tác phong cực kỳ chuyên nghiệp, hợp đồng rõ ràng, bảo hành nhanh gọn không đôi co."</p>
+              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">"Trường nâng cấp phòng máy tính cho học sinh thực hành, bên Phát Lộc giao máy đúng hẹn, cấu hình cài đặt sẵn đồng bộ. Khi phòng máy có phát sinh sự cố nhỏ là kỹ thuật hỗ trợ kiểm tra xử lý ngay."</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">T</div>
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">H</div>
                 <div>
-                  <h4 className="font-bold text-white">Anh Minh Tuấn</h4>
-                  <p className="text-sm text-slate-400">Giám đốc TNHH TM Sao Việt</p>
+                  <h4 className="font-bold text-white">Thầy Lê Văn Hùng</h4>
+                  <p className="text-sm text-slate-400">Phụ trách phòng Tin học trường học</p>
                 </div>
               </div>
             </div>
