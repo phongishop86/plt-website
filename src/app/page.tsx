@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, FormEvent } from "react";
+import { useEffect, useRef, useState, FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import { ContactButton } from "@/components/ContactButton";
 import { 
@@ -46,32 +46,51 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
     const data = {
-      name: formData.get("name"),
-      phone: formData.get("phone"),
-      email: formData.get("email"),
-      service: formData.get("svc"),
-      note: formData.get("note"),
+      name: formData.get("name")?.toString() || "",
+      phone: formData.get("phone")?.toString() || "",
+      email: formData.get("email")?.toString() || "",
+      service: formData.get("svc")?.toString() || "",
+      note: formData.get("note")?.toString() || "",
     };
     
+    setIsSubmitting(true);
+
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formsubmit.co/ajax/phatloctech.ltd@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
+        body: JSON.stringify({
+          "Họ và Tên": data.name,
+          "Số điện thoại": data.phone,
+          "Email": data.email || "Không cung cấp",
+          "Dịch vụ quan tâm": data.service,
+          "Chi tiết nhu cầu": data.note || "Không có ghi chú thêm",
+          _subject: `[Phát Lộc Tech] Yêu cầu tư vấn mới từ ${data.name} (${data.phone})`,
+          _template: "table",
+          _captcha: "false"
+        }),
       });
+
       if (res.ok) {
-        alert("Gửi yêu cầu thành công! Chúng tôi sẽ liên hệ sớm nhất.");
+        alert("Gửi yêu cầu thành công! Phát Lộc Tech đã nhận được thông tin và sẽ liên hệ hỗ trợ bạn sớm nhất.");
         form.reset();
       } else {
-        alert("Có lỗi xảy ra, vui lòng thử lại.");
+        alert("Gửi chưa thành công, vui lòng thử lại hoặc liên hệ Hotline 0932 685 794.");
       }
     } catch (err) {
-      alert("Không thể kết nối máy chủ.");
+      alert("Không thể kết nối máy chủ gửi tin. Vui lòng gọi trực tiếp Hotline 0932 685 794.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -642,8 +661,12 @@ export default function Home() {
                   <label htmlFor="note" className="block text-sm font-bold text-slate-700 mb-2">Chi tiết nhu cầu</label>
                   <textarea id="note" name="note" rows={4} placeholder="Ví dụ: Cần lắp 8 camera cho nhà xưởng..." className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]"></textarea>
                 </div>
-                <Button type="submit" className="w-full py-6 text-lg font-bold bg-[#FF6900] hover:bg-[#e65c00] text-white rounded-xl shadow-lg shadow-orange-500/30">
-                  Gửi Yêu Cầu Báo Giá
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full py-6 text-lg font-bold bg-[#FF6900] hover:bg-[#e65c00] text-white rounded-xl shadow-lg shadow-orange-500/30 disabled:opacity-50"
+                >
+                  {isSubmitting ? "Đang gửi yêu cầu..." : "Gửi Yêu Cầu Báo Giá"}
                 </Button>
               </form>
             </div>
