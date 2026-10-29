@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, MapPin, Mail, ChevronRight } from "lucide-react";
 
@@ -10,7 +11,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-white rounded-lg p-1">
-                <img src="/PLT-Logo-VNPT-final.png" alt="Phát Lộc Tech" className="w-full h-full object-contain" />
+                <Image src="/PLT-Logo-VNPT-final.png" alt="Logo Phát Lộc Tech" width={48} height={48} className="w-full h-full object-contain" />
               </div>
               <span className="font-black text-2xl text-white tracking-tight">PHÁT LỘC TECH</span>
             </Link>
@@ -24,11 +25,11 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#0693E3] shrink-0" />
-                <span className="font-bold text-white">0932 685 794</span>
+                <a href="tel:0932685794" className="font-bold text-white hover:text-[#0693E3]">0932 685 794</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#0693E3] shrink-0" />
-                <span>info@phatloctech.vn</span>
+                <a href="mailto:info@phatloctech.vn" className="hover:text-[#0693E3]">info@phatloctech.vn</a>
               </div>
             </div>
           </div>
@@ -50,10 +51,10 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Chính Sách</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo hành</Link></li>
-              <li><Link href="#" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Điều khoản giao dịch</Link></li>
-              <li><Link href="#" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo mật</Link></li>
-              <li><Link href="#" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Vận chuyển & Giao nhận</Link></li>
+              <li><Link href="/chinh-sach-bao-hanh" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo hành</Link></li>
+              <li><Link href="/dieu-khoan-giao-dich" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Điều khoản giao dịch</Link></li>
+              <li><Link href="/chinh-sach-bao-mat" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo mật</Link></li>
+              <li><Link href="/chinh-sach-van-chuyen" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Vận chuyển & Giao nhận</Link></li>
             </ul>
           </div>
 
@@ -62,6 +63,7 @@ export function Footer() {
             <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Bản Đồ</h4>
             <div className="w-full h-40 bg-slate-800 rounded-xl overflow-hidden border border-white/10">
               <iframe 
+                title="Bản đồ văn phòng Phát Lộc Tech"
                 src="https://www.google.com/maps?q=491%2F1+Tr%C6%B0%E1%BB%9Dng+Chinh%2C+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+B%C3%ACnh%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
                 width="100%" 
                 height="100%" 

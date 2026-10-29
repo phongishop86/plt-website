@@ -4,12 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
-import { ContactButton } from "@/components/ContactButton";
-import { 
-  Monitor, Server, Shield, Cloud, Code, FileDigit, Search, FileText, Wrench, 
-  Handshake, CheckCircle, HeadphonesIcon, TrendingUp, Cpu, HardDrive, Printer, 
-  MemoryStick, ChevronRight, Laptop, Users, Building, ArrowRight, Quote, Zap,
-  Bot, Sparkles, Lock, ShieldCheck, Database, Layers
+import {
+  Monitor, Server, Shield, Cloud, Search, FileText, Wrench, Handshake, CheckCircle, HeadphonesIcon, Laptop, ArrowRight, Quote, Zap, Bot, Sparkles, Lock, Database, Layers
 } from "lucide-react";
 
 export default function Home() {
@@ -54,8 +50,8 @@ export default function Home() {
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#001533]">
         <div className="absolute inset-0 z-0 opacity-40">
           <Image 
-            src="/hero-bg.png" 
-            alt="Futuristic Cityscape" 
+            src="/hero-bg.jpg" 
+            alt="Hạ tầng công nghệ thông tin Phát Lộc Tech" 
             fill 
             className="object-cover object-center"
             priority
@@ -318,7 +314,7 @@ export default function Home() {
             {/* Center Hub */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
               <div className="w-48 h-48 md:w-56 md:h-56 relative flex items-center justify-center hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_30px_rgba(6,147,227,0.3)] bg-white rounded-full p-2 border-4 border-slate-50">
-                <img src="/PLT-Logo-VNPT-final.png" alt="PLT Logo Ecosystem" className="w-full h-full object-contain" />
+                <Image src="/PLT-Logo-VNPT-final.png" alt="Logo Phát Lộc Tech" width={256} height={256} className="w-full h-full object-contain" />
               </div>
             </div>
 
@@ -523,7 +519,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative flex flex-col justify-between">
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/10" />
-              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">"Hệ thống máy chủ yêu cầu tính ổn định rất cao và quy trình nghiêm ngặt. Đội ngũ kỹ thuật Phát Lộc Tech phối hợp kiểm tra định kỳ đúng lịch, hỗ trợ kỹ thuật kịp thời khi có cảnh báo nên chúng tôi rất yên tâm trong ca trực."</p>
+              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">&ldquo;Hệ thống máy chủ yêu cầu tính ổn định rất cao và quy trình nghiêm ngặt. Đội ngũ kỹ thuật Phát Lộc Tech phối hợp kiểm tra định kỳ đúng lịch, hỗ trợ kỹ thuật kịp thời khi có cảnh báo nên chúng tôi rất yên tâm trong ca trực.&rdquo;</p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#0693E3] to-[#003388] rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">M</div>
                 <div>
@@ -535,7 +531,7 @@ export default function Home() {
             
             <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative flex flex-col justify-between">
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/10" />
-              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">"Khu vực xưởng sản xuất công nghệ cao đòi hỏi camera bao quát góc rộng và quan sát rõ cả ban đêm. Các bạn thi công dây gọn gàng, hướng dẫn phần mềm xem trực tiếp trên điện thoại rất chi tiết, nhiệt tình."</p>
+              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">&ldquo;Khu vực xưởng sản xuất công nghệ cao đòi hỏi camera bao quát góc rộng và quan sát rõ cả ban đêm. Các bạn thi công dây gọn gàng, hướng dẫn phần mềm xem trực tiếp trên điện thoại rất chi tiết, nhiệt tình.&rdquo;</p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#FF6900] to-red-600 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">N</div>
                 <div>
@@ -547,7 +543,7 @@ export default function Home() {
 
             <div className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl relative flex flex-col justify-between">
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/10" />
-              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">"Trường nâng cấp phòng máy tính cho học sinh thực hành, bên Phát Lộc giao máy đúng hẹn, cấu hình cài đặt sẵn đồng bộ. Khi phòng máy có phát sinh sự cố nhỏ là kỹ thuật hỗ trợ kiểm tra xử lý ngay."</p>
+              <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">&ldquo;Trường nâng cấp phòng máy tính cho học sinh thực hành, bên Phát Lộc giao máy đúng hẹn, cấu hình cài đặt sẵn đồng bộ. Khi phòng máy có phát sinh sự cố nhỏ là kỹ thuật hỗ trợ kiểm tra xử lý ngay.&rdquo;</p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">H</div>
                 <div>
@@ -596,7 +592,7 @@ export default function Home() {
                 {/* FormSubmit Configurations */}
                 <input type="hidden" name="_subject" value="[Phát Lộc Tech] Yêu Cầu Báo Giá Mới Từ Website" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_captcha" value="false" />
+                <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                 <input type="hidden" name="_next" value="https://phatloctech.vn/#bao-gia" />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
