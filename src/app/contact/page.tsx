@@ -1,5 +1,5 @@
-"use client";
-
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { 
@@ -11,7 +11,19 @@ import {
   UserCircle2
 } from "lucide-react";
 
-export default function ContactPage() {
+export const metadata: Metadata = pageMeta(
+  "Liên hệ tư vấn giải pháp CNTT doanh nghiệp",
+  "Liên hệ Phát Lộc Tech - Hotline 0932 685 794. Tư vấn miễn phí máy tính, camera, hạ tầng mạng, IT helpdesk tại 491/1 Trường Chinh, Tân Bình, TP.HCM.",
+  "/contact",
+);
+
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const params = await searchParams;
+  const prefill = typeof params["nhu-cau"] === "string" ? params["nhu-cau"].slice(0, 500) : "";
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 font-sans">
@@ -19,8 +31,8 @@ export default function ContactPage() {
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-[#001533]">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image 
-            src="/hero-bg.png" 
-            alt="Futuristic Cityscape" 
+            src="/hero-bg.jpg" 
+            alt="" 
             fill 
             className="object-cover object-center"
             priority
@@ -52,8 +64,7 @@ export default function ContactPage() {
                     <div className="w-32 h-32 bg-white rounded-full p-2 shadow-lg">
                       {/* Avatar Placeholder */}
                       <div className="w-full h-full bg-slate-100 rounded-full flex items-center justify-center overflow-hidden border-2 border-slate-50">
-                        {/* We use an icon here, but the user can replace it with a real photo */}
-                        <UserCircle2 className="w-20 h-20 text-slate-300" />
+                                                <UserCircle2 className="w-20 h-20 text-slate-300" />
                         {/* Example if they have a real photo:
                         <Image src="/director.jpg" alt="Nguyễn Thanh Phong" fill className="object-cover" /> */}
                       </div>
@@ -130,7 +141,7 @@ export default function ContactPage() {
             <div className="w-full lg:w-7/12 flex flex-col gap-8">
               
               {/* Form Card */}
-              <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12">
+              <div id="form-lien-he" className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 scroll-mt-28">
                 <h3 className="text-2xl font-black text-[#003388] mb-2">Gửi Yêu Cầu Cho Chúng Tôi</h3>
                 <p className="text-slate-500 mb-8">Chúng tôi sẽ phản hồi yêu cầu của bạn trong vòng 30 phút (giờ hành chính).</p>
                 
@@ -142,7 +153,7 @@ export default function ContactPage() {
                   {/* FormSubmit Configurations */}
                   <input type="hidden" name="_subject" value="[Phát Lộc Tech - Trang Liên Hệ] Yêu Cầu Tư Vấn Mới" />
                   <input type="hidden" name="_template" value="table" />
-                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                   <input type="hidden" name="_next" value="https://phatloctech.vn/contact" />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -173,7 +184,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label htmlFor="note" className="block text-sm font-bold text-slate-700 mb-2">Chi tiết nhu cầu</label>
-                    <textarea id="note" name="Chi tiết nhu cầu" rows={4} placeholder="Ví dụ: Cần tư vấn giải pháp IT cho văn phòng..." className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]"></textarea>
+                    <textarea id="note" name="Chi tiết nhu cầu" rows={4} placeholder="Ví dụ: Cần tư vấn giải pháp IT cho văn phòng..." defaultValue={prefill} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]"></textarea>
                   </div>
                   <Button 
                     type="submit" 
@@ -200,6 +211,7 @@ export default function ContactPage() {
                 </div>
                 <div className="h-[300px] w-full">
                   <iframe 
+                    title="Bản đồ văn phòng Phát Lộc Tech"
                     src="https://www.google.com/maps?q=491%2F1+Tr%C6%B0%E1%BB%9Dng+Chinh%2C+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+B%C3%ACnh%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
                     width="100%" 
                     height="100%" 
