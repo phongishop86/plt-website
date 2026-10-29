@@ -26,33 +26,33 @@ export function QuoteRequestBox() {
 
   return (
     <>
-      <div className="max-w-3xl mx-auto mb-8">
+      <div className="mb-4 max-w-3xl">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             goToContact(need);
           }}
-          className="bg-white rounded-2xl p-2 flex flex-col sm:flex-row items-stretch gap-2 shadow-sm border border-slate-200"
+          className="flex flex-col items-stretch gap-2 rounded-2xl border border-line bg-white p-2 focus-within:border-sky sm:flex-row"
         >
           <label htmlFor="nhu-cau" className="sr-only">Nhu cầu của bạn</label>
           <input
             id="nhu-cau"
             type="text"
             placeholder='Ví dụ: "Cần 10 máy tính văn phòng dưới 12 triệu"'
-            className="w-full px-4 py-3 outline-none text-base md:text-lg bg-transparent"
+            className="w-full bg-transparent px-4 py-3 text-base text-ink outline-none md:text-lg"
             value={need}
             onChange={(e) => setNeed(e.target.value)}
           />
-          <Button type="submit" size="lg" className="gap-2 shrink-0">
+          <Button type="submit" variant="cta" size="lg" className="shrink-0">
             <Send className="w-4 h-4" /> Gửi yêu cầu báo giá
           </Button>
         </form>
       </div>
 
-      <div className="flex flex-wrap gap-3 justify-center mb-12">
+      <div className="mb-14 flex flex-wrap gap-2">
         {SUGGESTIONS.map(({ label, icon: Icon, text }) => (
-          <Button key={label} variant="outline" className="gap-2" onClick={() => setNeed(text)}>
-            <Icon className="w-4 h-4" /> {label}
+          <Button key={label} variant="outline" size="sm" className="rounded-full" onClick={() => setNeed(text)}>
+            <Icon className="h-4 w-4 text-sky" aria-hidden="true" /> {label}
           </Button>
         ))}
       </div>

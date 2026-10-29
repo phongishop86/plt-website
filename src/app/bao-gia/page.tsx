@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/site";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/Card";
+import { Card, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/Card";
+import { PageHeader } from "@/components/PageHeader";
 import { Monitor, Shield } from "lucide-react";
 import { QuoteRequestBox } from "./QuoteRequestBox";
 
@@ -27,39 +28,36 @@ const SAMPLE_PRODUCTS = [
 
 export default function PricingPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">Báo giá thiết bị & giải pháp CNTT</h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Mô tả nhu cầu của doanh nghiệp bạn, kỹ thuật viên Phát Lộc Tech sẽ tư vấn cấu hình phù hợp
-          và gửi báo giá chi tiết, hoàn toàn miễn phí.
-        </p>
-      </div>
+    <>
+      <PageHeader
+        title="Báo giá"
+        lead="Mô tả nhu cầu, kỹ thuật viên tư vấn cấu hình phù hợp và gửi báo giá chi tiết, hoàn toàn miễn phí."
+      />
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-12 md:py-16">
+        <QuoteRequestBox />
 
-      <QuoteRequestBox />
-
-      <h2 className="text-2xl font-bold mb-6">Sản phẩm tiêu biểu</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {SAMPLE_PRODUCTS.map(({ icon: Icon, title, desc }) => (
-          <Card key={title} className="flex flex-col h-full">
-            <div className="aspect-square bg-slate-100 flex items-center justify-center p-4">
-              <Icon className="w-24 h-24 text-slate-300" aria-hidden="true" />
-            </div>
-            <CardHeader className="flex-1 pb-4">
-              <CardTitle className="text-lg">{title}</CardTitle>
-              <CardDescription>{desc}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-xl font-bold text-primary">Giá: Liên hệ</div>
-            </CardContent>
-            <CardFooter className="pt-0">
-              <Link href={`/contact?nhu-cau=${encodeURIComponent(`Báo giá: ${title}`)}#form-lien-he`} className="w-full">
-                <Button className="w-full">Báo giá nhanh</Button>
-              </Link>
-            </CardFooter>
-          </Card>
-        ))}
+        <h2 className="mb-6 text-2xl font-bold text-navy">Sản phẩm tiêu biểu</h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {SAMPLE_PRODUCTS.map(({ icon: Icon, title, desc }) => (
+            <Card key={title}>
+              {/* Thay bằng ảnh sản phẩm thật khi có */}
+              <div className="flex aspect-[4/3] items-center justify-center bg-paper">
+                <Icon className="h-20 w-20 text-slate-300" strokeWidth={1.25} aria-hidden="true" />
+              </div>
+              <CardHeader className="flex-1 pb-4">
+                <CardTitle>{title}</CardTitle>
+                <CardDescription>{desc}</CardDescription>
+              </CardHeader>
+              <CardFooter className="justify-between gap-4">
+                <span className="font-semibold text-navy">Giá: liên hệ</span>
+                <Button asChild variant="cta">
+                  <Link href={`/contact?nhu-cau=${encodeURIComponent(`Báo giá: ${title}`)}#form-lien-he`}>Hỏi giá</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

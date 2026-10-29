@@ -1,84 +1,65 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, MapPin, Mail, ChevronRight } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
+import { SERVICES } from "@/lib/services";
+import { POLICY_LINKS } from "@/components/PolicyPage";
 
 export function Footer() {
   return (
-    <footer className="bg-[#001533] text-slate-300 py-16 border-t border-white/10">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
-          {/* Brand Col */}
-          <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-white rounded-lg p-1">
-                <Image src="/PLT-Logo-VNPT-final.png" alt="Logo Phát Lộc Tech" width={48} height={48} className="w-full h-full object-contain" />
-              </div>
-              <span className="font-black text-2xl text-white tracking-tight">PHÁT LỘC TECH</span>
-            </Link>
-            <p className="text-sm leading-relaxed mb-6">
-              Đối tác công nghệ toàn diện cho doanh nghiệp vừa và nhỏ. Chuyên cung cấp giải pháp máy tính, camera, hạ tầng mạng và phần mềm bản quyền chính hãng.
-            </p>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#0693E3] shrink-0" />
-                <span>Số 491/1 Trường Chinh, Phường Tân Bình, Thành phố Hồ Chí Minh, Việt Nam</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[#0693E3] shrink-0" />
-                <a href="tel:0932685794" className="font-bold text-white hover:text-[#0693E3]">0932 685 794</a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[#0693E3] shrink-0" />
-                <a href="mailto:info@phatloctech.vn" className="hover:text-[#0693E3]">info@phatloctech.vn</a>
-              </div>
-            </div>
-          </div>
-
-          {/* Links Col 1 */}
-          <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Dịch Vụ Lõi</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link href="/#giai-phap-ai" className="hover:text-[#0693E3] flex items-center gap-2 text-cyan-400 font-semibold"><ChevronRight className="w-4 h-4"/> Giải pháp AI Vận hành CNTT</Link></li>
-              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Hạ tầng mạng & Máy chủ</Link></li>
-              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Dịch vụ IT Helpdesk</Link></li>
-              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Camera an ninh giám sát</Link></li>
-              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Máy tính & TB văn phòng</Link></li>
-              <li><Link href="/#dich-vu" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Phần mềm & Số hóa</Link></li>
-            </ul>
-          </div>
-
-          {/* Links Col 2 */}
-          <div className="lg:col-span-2">
-            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Chính Sách</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link href="/chinh-sach-bao-hanh" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo hành</Link></li>
-              <li><Link href="/dieu-khoan-giao-dich" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Điều khoản giao dịch</Link></li>
-              <li><Link href="/chinh-sach-bao-mat" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo mật</Link></li>
-              <li><Link href="/chinh-sach-van-chuyen" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Vận chuyển & Giao nhận</Link></li>
-            </ul>
-          </div>
-
-          {/* Map Col */}
-          <div className="lg:col-span-3">
-            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Bản Đồ</h4>
-            <div className="w-full h-40 bg-slate-800 rounded-xl overflow-hidden border border-white/10">
-              <iframe 
-                title="Bản đồ văn phòng Phát Lộc Tech"
-                src="https://www.google.com/maps?q=491%2F1+Tr%C6%B0%E1%BB%9Dng+Chinh%2C+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+B%C3%ACnh%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          </div>
+    <footer className="bg-navy-deep text-slate-300">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-4 md:px-6 py-14 md:grid-cols-2 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <Link href="/" className="mb-5 inline-flex items-center gap-3">
+            <span className="rounded-xl bg-white p-1">
+              <Image src="/PLT-Logo-VNPT-final.png" alt="" width={44} height={44} className="h-11 w-11" />
+            </span>
+            <span className="font-display text-2xl font-bold text-white">Phát Lộc Tech</span>
+          </Link>
+          <p className="mb-6 max-w-sm text-sm leading-relaxed">
+            Cung cấp thiết bị và dịch vụ CNTT cho văn phòng, nhà xưởng, trường học tại TP.HCM — một đầu mối từ mua sắm đến vận hành.
+          </p>
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky" aria-hidden="true" />
+              Số 491/1 Trường Chinh, Phường Tân Bình, TP. Hồ Chí Minh
+            </li>
+            <li className="flex items-center gap-3">
+              <Phone className="h-4 w-4 shrink-0 text-sky" aria-hidden="true" />
+              <a href="tel:0932685794" className="font-semibold text-white hover:text-sky">0932 685 794</a>
+            </li>
+            <li className="flex items-center gap-3">
+              <Mail className="h-4 w-4 shrink-0 text-sky" aria-hidden="true" />
+              <a href="mailto:info@phatloctech.vn" className="hover:text-sky">info@phatloctech.vn</a>
+            </li>
+          </ul>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} CÔNG TY TNHH PHÁT LỘC TECH. MST: 0319347662.</p>
-          <p>Thiết kế với sự tận tâm.</p>
+        <div className="lg:col-span-4">
+          <h2 className="mb-4 text-sm font-semibold text-white">Dịch vụ</h2>
+          <ul className="space-y-2.5 text-sm">
+            {SERVICES.map((s) => (
+              <li key={s.slug}>
+                <Link href="/#dich-vu" className="hover:text-sky">{s.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="lg:col-span-3">
+          <h2 className="mb-4 text-sm font-semibold text-white">Chính sách</h2>
+          <ul className="space-y-2.5 text-sm">
+            {POLICY_LINKS.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="hover:text-sky">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-6 pb-24 md:pb-6 text-xs text-slate-400">
+          © {new Date().getFullYear()} Công ty TNHH Phát Lộc Tech. MST: 0319347662.
         </div>
       </div>
     </footer>

@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/site";
-import Image from "next/image";
-import { Button } from "@/components/ui/Button";
-import { 
-  Phone, 
-  MapPin, 
-  Mail, 
-  Briefcase, 
-  Award, 
-  UserCircle2
-} from "lucide-react";
+import { pageMeta, SITE } from "@/lib/site";
+import { Phone, MapPin, Mail, MessageCircle, UserCircle2, Building2 } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
+import { QuoteForm } from "@/components/QuoteForm";
 
 export const metadata: Metadata = pageMeta(
   "Liên hệ tư vấn giải pháp CNTT doanh nghiệp",
   "Liên hệ Phát Lộc Tech - Hotline 0932 685 794. Tư vấn miễn phí máy tính, camera, hạ tầng mạng, IT helpdesk tại 491/1 Trường Chinh, Tân Bình, TP.HCM.",
   "/contact",
 );
+
+const CHANNELS = [
+  { icon: Phone, label: "Hotline", value: "0932 685 794", href: "tel:0932685794" },
+  { icon: MessageCircle, label: "Zalo", value: "0932 685 794", href: SITE.zalo, external: true },
+  { icon: Mail, label: "Email", value: "info@phatloctech.vn", href: "mailto:info@phatloctech.vn" },
+];
 
 export default async function ContactPage({
   searchParams,
@@ -26,207 +25,90 @@ export default async function ContactPage({
   const prefill = typeof params["nhu-cau"] === "string" ? params["nhu-cau"].slice(0, 500) : "";
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50 font-sans">
-      {/* HERO SECTION */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-[#001533]">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <Image 
-            src="/hero-bg.jpg" 
-            alt="" 
-            fill 
-            className="object-cover object-center"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#001533] to-transparent z-0"></div>
-        
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-3xl md:text-5xl font-black text-white mb-4 uppercase tracking-wide">
-            Liên Hệ <span className="text-[#0693E3]">&</span> Hợp Tác
-          </h1>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Chúng tôi luôn sẵn sàng lắng nghe và đưa ra giải pháp công nghệ tối ưu nhất cho doanh nghiệp của bạn.
-          </p>
-        </div>
-      </section>
+    <>
+      <PageHeader
+        title="Liên hệ"
+        lead="Gọi, nhắn Zalo hoặc gửi yêu cầu bên dưới. Kỹ thuật viên phản hồi trong 30 phút giờ hành chính."
+      />
 
-      {/* MAIN CONTENT */}
-      <section className="py-16 md:py-24 relative z-20 -mt-10">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto">
-            
-            {/* LEFT: DIRECTOR PROFILE */}
-            <div className="w-full lg:w-5/12">
-              <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden sticky top-32">
-                {/* Profile Cover */}
-                <div className="h-32 bg-gradient-to-r from-[#003388] to-[#0693E3] relative">
-                  <div className="absolute -bottom-16 left-8">
-                    <div className="w-32 h-32 bg-white rounded-full p-2 shadow-lg">
-                      {/* Avatar Placeholder */}
-                      <div className="w-full h-full bg-slate-100 rounded-full flex items-center justify-center overflow-hidden border-2 border-slate-50">
-                                                <UserCircle2 className="w-20 h-20 text-slate-300" />
-                        {/* Example if they have a real photo:
-                        <Image src="/director.jpg" alt="Nguyễn Thanh Phong" fill className="object-cover" /> */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Profile Info */}
-                <div className="pt-20 px-8 pb-8">
-                  <h2 className="text-2xl font-black text-[#003388] mb-1">Nguyễn Thanh Phong</h2>
-                  <p className="text-[#FF6900] font-bold text-sm uppercase tracking-wider mb-6">Giám Đốc / Người Sáng Lập</p>
-                  
-                  <div className="space-y-4 text-slate-600 text-sm leading-relaxed mb-8">
-                    <p>
-                      Với hơn 5 năm kinh nghiệm chuyên sâu trong lĩnh vực hạ tầng mạng và tích hợp hệ thống cho doanh nghiệp vừa và nhỏ (SME).
-                    </p>
-                    <p>
-                      Ông Nguyễn Thanh Phong không chỉ là người điều hành mà còn là chuyên gia trực tiếp tham gia khảo sát, thiết kế giải pháp nhằm đảm bảo mọi hệ thống triển khai đều đạt độ ổn định cao nhất với chi phí tối ưu nhất.
-                    </p>
-                  </div>
-
-                  {/* Highlights */}
-                  <div className="space-y-3 mb-8 border-y border-slate-100 py-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-[#0693E3]">
-                        <Briefcase className="w-4 h-4" />
-                      </div>
-                      <span className="text-sm font-medium text-slate-700">Chuyên gia Mạng & Hệ thống</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-[#0693E3]">
-                        <Award className="w-4 h-4" />
-                      </div>
-                      <span className="text-sm font-medium text-slate-700">Cam kết chất lượng 100%</span>
-                    </div>
-                  </div>
-
-                  {/* Contact Direct */}
-                  <div className="space-y-4">
-                    <a href="tel:0932685794" className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group">
-                      <div className="w-10 h-10 rounded-full bg-[#FF6900] flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
-                        <Phone className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-slate-400 font-medium">Hotline Trực Tiếp</p>
-                        <p className="font-bold text-slate-800">0932 685 794</p>
-                      </div>
-                    </a>
-                    
-                    <a href="mailto:info@phatloctech.vn" className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group">
-                      <div className="w-10 h-10 rounded-full bg-[#0693E3] flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
-                        <Mail className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-slate-400 font-medium">Email</p>
-                        <p className="font-bold text-slate-800">info@phatloctech.vn</p>
-                      </div>
-                    </a>
-                  </div>
-                  
-                  {/* vCard Download */}
-                  <div className="mt-6 pt-6 border-t border-slate-100">
-                    <a href="/contact/Mr_Phong.vcf" download="Mr_Phong.vcf" className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors">
-                      <UserCircle2 className="w-5 h-5" />
-                      Lưu danh bạ (vCard)
-                    </a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT: CONTACT FORM & INFO */}
-            <div className="w-full lg:w-7/12 flex flex-col gap-8">
-              
-              {/* Form Card */}
-              <div id="form-lien-he" className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 scroll-mt-28">
-                <h3 className="text-2xl font-black text-[#003388] mb-2">Gửi Yêu Cầu Cho Chúng Tôi</h3>
-                <p className="text-slate-500 mb-8">Chúng tôi sẽ phản hồi yêu cầu của bạn trong vòng 30 phút (giờ hành chính).</p>
-                
-                <form 
-                  action="https://formsubmit.co/phatloctech.ltd@gmail.com" 
-                  method="POST" 
-                  className="space-y-6"
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-4 md:px-6 py-12 md:py-16 lg:grid-cols-[1fr_1.3fr] lg:gap-14">
+        {/* Thông tin liên hệ */}
+        <div className="space-y-8">
+          <ul className="divide-y divide-line overflow-hidden rounded-2xl border border-line">
+            {CHANNELS.map(({ icon: Icon, label, value, href, external }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="flex items-center gap-4 p-4 hover:bg-paper"
                 >
-                  {/* FormSubmit Configurations */}
-                  <input type="hidden" name="_subject" value="[Phát Lộc Tech - Trang Liên Hệ] Yêu Cầu Tư Vấn Mới" />
-                  <input type="hidden" name="_template" value="table" />
-                  <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
-                  <input type="hidden" name="_next" value="https://phatloctech.vn/contact" />
+                  <Icon className="h-5 w-5 shrink-0 text-sky" aria-hidden="true" />
+                  <span>
+                    <span className="block text-xs text-muted">{label}</span>
+                    <span className="font-semibold text-ink">{value}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-2">Họ và Tên *</label>
-                      <input id="name" name="Họ và Tên" type="text" placeholder="Nhập họ tên" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-2">Số điện thoại *</label>
-                      <input id="phone" name="Số điện thoại" type="tel" placeholder="09xx xxx xxx" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">Email</label>
-                    <input id="email" name="Email" type="email" placeholder="ban@congty.vn" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
-                  </div>
-                  <div>
-                    <label htmlFor="svc" className="block text-sm font-bold text-slate-700 mb-2">Loại dịch vụ quan tâm</label>
-                    <select id="svc" name="Loại dịch vụ quan tâm" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]">
-                      <option>Giải pháp AI Vận hành CNTT</option>
-                      <option>Hạ tầng mạng & Máy chủ</option>
-                      <option>Dịch vụ IT Helpdesk & Bảo trì</option>
-                      <option>Camera an ninh & Giám sát</option>
-                      <option>Máy tính & Thiết bị văn phòng</option>
-                      <option>Phần mềm & Số hóa doanh nghiệp</option>
-                      <option>Khác</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="note" className="block text-sm font-bold text-slate-700 mb-2">Chi tiết nhu cầu</label>
-                    <textarea id="note" name="Chi tiết nhu cầu" rows={4} placeholder="Ví dụ: Cần tư vấn giải pháp IT cho văn phòng..." defaultValue={prefill} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]"></textarea>
-                  </div>
-                  <Button 
-                    type="submit" 
-                    className="w-full py-6 text-lg font-bold bg-gradient-to-r from-[#0693E3] to-[#003388] text-white rounded-xl shadow-lg shadow-blue-500/30 border-0 hover:opacity-90"
-                  >
-                    Gửi Yêu Cầu
-                  </Button>
-                </form>
+          <div className="rounded-2xl border border-line p-6">
+            <div className="flex items-center gap-4">
+              {/* Thay bằng ảnh chân dung thật: <Image src="/director.jpg" … /> */}
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-paper">
+                <UserCircle2 className="h-10 w-10 text-slate-300" aria-hidden="true" />
+              </span>
+              <div>
+                <h2 className="text-xl font-bold text-navy">Nguyễn Thanh Phong</h2>
+                <p className="text-sm text-muted">Giám đốc, kỹ sư mạng & hệ thống</p>
               </div>
-
-              {/* Map Card */}
-              <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
-                <div className="p-8 border-b border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-                  <div>
-                    <h3 className="text-xl font-black text-[#003388]">Văn phòng Phát Lộc Tech</h3>
-                    <div className="flex items-center gap-2 mt-2 text-slate-500 text-sm">
-                      <MapPin className="w-4 h-4 text-[#FF6900]" />
-                      <span>Số 491/1 Trường Chinh, P. Tân Bình, TP.HCM</span>
-                    </div>
-                  </div>
-                  <div className="bg-blue-50 text-[#003388] px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap">
-                    MST: 0319347662
-                  </div>
-                </div>
-                <div className="h-[300px] w-full">
-                  <iframe 
-                    title="Bản đồ văn phòng Phát Lộc Tech"
-                    src="https://www.google.com/maps?q=491%2F1+Tr%C6%B0%E1%BB%9Dng+Chinh%2C+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+B%C3%ACnh%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
-              </div>
-
             </div>
+            <p className="mt-4 text-sm leading-relaxed text-muted">
+              Hơn 5 năm kinh nghiệm hạ tầng mạng và tích hợp hệ thống cho doanh nghiệp vừa và nhỏ. Trực tiếp tham gia khảo sát, thiết kế giải pháp để hệ thống chạy ổn định với chi phí hợp lý.
+            </p>
+            <a
+              href="/contact/Mr_Phong.vcf"
+              download="Mr_Phong.vcf"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy underline-offset-4 hover:underline"
+            >
+              Lưu danh bạ (vCard)
+            </a>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-line">
+            <div className="space-y-2 p-5 text-sm">
+              <p className="flex items-start gap-2 text-ink">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky" aria-hidden="true" />
+                Số 491/1 Trường Chinh, Phường Tân Bình, TP. Hồ Chí Minh
+              </p>
+              <p className="flex items-center gap-2 text-muted">
+                <Building2 className="h-4 w-4 shrink-0 text-sky" aria-hidden="true" />
+                Công ty TNHH Phát Lộc Tech · MST 0319347662
+              </p>
+            </div>
+            <iframe
+              title="Bản đồ văn phòng Phát Lộc Tech"
+              src="https://www.google.com/maps?q=491%2F1+Tr%C6%B0%E1%BB%9Dng+Chinh%2C+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+B%C3%ACnh%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh&output=embed"
+              className="h-64 w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* Form */}
+        <div id="form-lien-he" className="h-fit rounded-2xl border border-line bg-white p-6 md:p-8 lg:sticky lg:top-28">
+          <h2 className="mb-6 text-2xl font-bold text-navy">Gửi yêu cầu tư vấn</h2>
+          <QuoteForm
+            idPrefix="contact"
+            showEmail
+            defaultNote={prefill}
+            subject="[Phát Lộc Tech - Trang Liên Hệ] Yêu cầu tư vấn mới"
+            next="https://www.phatloctech.vn/contact"
+            submitLabel="Gửi yêu cầu"
+          />
+        </div>
+      </div>
+    </>
   );
 }
