@@ -27,4 +27,4 @@ npm run build    # kiểm tra trước khi đẩy lên
 - Thông tin doanh nghiệp dùng chung: `src/lib/site.ts` (sửa SĐT, địa chỉ, mô tả tại đây).
 - Mỗi trang khai báo tiêu đề/mô tả bằng `pageMeta()`.
 - Dữ liệu có cấu trúc LocalBusiness (JSON-LD) nằm trong `src/app/layout.tsx`.
-- Ảnh chia sẻ mạng xã hội: `public/og-image.jpg` (1200×630).
+- Ảnh chia sẻ mạng xã hội: `public/og-image.png` (1200×630).

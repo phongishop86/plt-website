@@ -1,6 +1,6 @@
 /** Thông tin doanh nghiệp dùng chung cho SEO (metadata, sitemap, dữ liệu có cấu trúc). */
 export const SITE = {
-  url: "https://phatloctech.vn",
+  url: "https://www.phatloctech.vn",
   name: "Phát Lộc Tech",
   legalName: "CÔNG TY TNHH PHÁT LỘC TECH",
   taxId: "0319347662",
@@ -29,7 +29,7 @@ export function pageMeta(title: string, description: string, path: string) {
       url: path,
       title: `${title} | ${SITE.name}`,
       description,
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: SITE.name }],
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: SITE.name }],
     },
   };
 }
