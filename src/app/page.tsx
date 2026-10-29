@@ -158,26 +158,26 @@ export default function Home() {
                   <Bot className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-xs font-bold text-[#0693E3] uppercase tracking-wider mb-2">Giai đoạn 1</div>
-                <h3 className="text-xl font-black mb-2 text-white">AI IT Assistant</h3>
+                <h3 className="text-lg font-black mb-2 text-white xl:whitespace-nowrap">AI IT Assistant</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-3">
                   Trợ lý thông minh đồng hành cùng đội ngũ kỹ sư IT doanh nghiệp tra cứu quy trình, hướng dẫn chẩn đoán sự cố phần cứng/mạng và tự động soạn thảo báo cáo bảo trì định kỳ.
                 </p>
-                <ul className="space-y-2 text-sm text-slate-300 mb-4">
+                <ul className="space-y-1.5 text-[13px] text-slate-300 mb-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-[#0693E3] shrink-0 mt-0.5" />
-                    <span>Hướng dẫn troubleshooting mạng/máy chủ từng bước</span>
+                    <span className="xl:whitespace-nowrap">Hướng dẫn troubleshooting mạng/máy chủ từng bước</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-[#0693E3] shrink-0 mt-0.5" />
-                    <span>Tra cứu tài liệu quy trình chuẩn (SOP) theo ngữ cảnh</span>
+                    <span className="xl:whitespace-nowrap">Tra cứu quy trình chuẩn (SOP) theo ngữ cảnh</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-[#0693E3] shrink-0 mt-0.5" />
-                    <span>Tự động tổng hợp log sự cố & lập báo cáo kỹ thuật</span>
+                    <span className="xl:whitespace-nowrap">Tổng hợp log sự cố & lập báo cáo kỹ thuật</span>
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 border-t border-white/10 text-xs text-blue-200 font-semibold">
+              <div className="pt-3 border-t border-white/10 text-xs xl:whitespace-nowrap text-blue-200 font-semibold">
                 🎯 Mục tiêu: Giảm 60% thời gian phản hồi sự cố (MTTR)
               </div>
             </div>
@@ -189,26 +189,26 @@ export default function Home() {
                   <Database className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Giai đoạn 2</div>
-                <h3 className="text-xl font-black mb-2 text-white">Knowledge Search & Automation</h3>
+                <h3 className="text-lg font-black mb-2 text-white xl:whitespace-nowrap">Knowledge Search & Automation</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-3">
                   Hệ thống tìm kiếm ngữ nghĩa thông minh và tự động hóa tác nghiệp lặp lại. Phân loại ticket và điều phối yêu cầu hỗ trợ kỹ thuật tự động.
                 </p>
-                <ul className="space-y-2 text-sm text-slate-300 mb-4">
+                <ul className="space-y-1.5 text-[13px] text-slate-300 mb-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
-                    <span>Tìm kiếm ngữ nghĩa tài liệu kỹ thuật bảo mật nội bộ</span>
+                    <span className="xl:whitespace-nowrap">Tìm kiếm ngữ nghĩa tài liệu kỹ thuật nội bộ</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
-                    <span>Tự động phân loại & định tuyến ticket hỗ trợ IT</span>
+                    <span className="xl:whitespace-nowrap">Tự động phân loại & định tuyến ticket hỗ trợ IT</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
-                    <span>Kiểm soát phân quyền chặt chẽ (RBAC) chuẩn doanh nghiệp</span>
+                    <span className="xl:whitespace-nowrap">Phân quyền chặt chẽ (RBAC) chuẩn doanh nghiệp</span>
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 border-t border-white/10 text-xs text-indigo-200 font-semibold">
+              <div className="pt-3 border-t border-white/10 text-xs xl:whitespace-nowrap text-indigo-200 font-semibold">
                 🎯 Mục tiêu: Tự động hóa 70% các tác vụ tra cứu & báo cáo
               </div>
             </div>
@@ -220,26 +220,26 @@ export default function Home() {
                   <Layers className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Giai đoạn 3</div>
-                <h3 className="text-xl font-black mb-2 text-white">Digital Solutions & Ecosystem</h3>
+                <h3 className="text-lg font-black mb-2 text-white xl:whitespace-nowrap">Digital Solutions & Ecosystem</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-3">
                   Tích hợp trợ lý AI thông minh vào hệ thống website doanh nghiệp và các nền tảng số hóa quản trị tác nghiệp chuyên biệt.
                 </p>
-                <ul className="space-y-2 text-sm text-slate-300 mb-4">
+                <ul className="space-y-1.5 text-[13px] text-slate-300 mb-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>Phát triển website thông minh tích hợp trợ lý Claude</span>
+                    <span className="xl:whitespace-nowrap">Website thông minh tích hợp trợ lý Claude</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>Hệ thống quản lý đăng ký & điều hành hội thao doanh nghiệp</span>
+                    <span className="xl:whitespace-nowrap">Quản lý đăng ký & điều hành hội thao doanh nghiệp</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>Tự động hóa bốc thăm, xếp lịch và cập nhật kết quả thi đấu</span>
+                    <span className="xl:whitespace-nowrap">Tự động bốc thăm, xếp lịch, cập nhật kết quả</span>
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 border-t border-white/10 text-xs text-emerald-200 font-semibold">
+              <div className="pt-3 border-t border-white/10 text-xs xl:whitespace-nowrap text-emerald-200 font-semibold">
                 🎯 Mục tiêu: Hệ sinh thái chuyển đổi số doanh nghiệp toàn diện
               </div>
             </div>
@@ -317,49 +317,49 @@ export default function Home() {
           <div className="max-w-6xl mx-auto relative">
             {/* Center Hub */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
-              <div className="w-36 h-36 md:w-44 md:h-44 relative flex items-center justify-center hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_30px_rgba(6,147,227,0.3)] bg-white rounded-full p-2 border-4 border-slate-50">
+              <div className="w-28 h-28 md:w-36 md:h-36 relative flex items-center justify-center hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_30px_rgba(6,147,227,0.3)] bg-white rounded-full p-2 border-4 border-slate-50">
                 <img src="/PLT-Logo-VNPT-final.png" alt="PLT Logo Ecosystem" className="w-full h-full object-contain" />
               </div>
             </div>
 
             {/* Left and Right Spokes */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 lg:gap-y-5 lg:gap-x-72 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 lg:gap-y-4 lg:gap-x-52 relative z-10">
               
               {/* LEFT COLUMN */}
               <div className="flex flex-col gap-4 lg:gap-5">
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-8 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#0693E3] to-[#003388] flex items-center justify-center flex-shrink-0">
                     <Bot className="w-7 h-7 text-white" />
                   </div>
                   <div className="pl-5 py-2 flex-1">
-                    <h4 className="font-black text-base text-[#003388] uppercase mb-1">Giải Pháp AI Vận Hành CNTT</h4>
-                    <p className="text-sm text-slate-600 hidden md:block">Trợ lý AI hỗ trợ tra cứu kỹ thuật & tự động hóa tác nghiệp.</p>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-[#003388] uppercase mb-1">Giải Pháp AI Vận Hành CNTT</h4>
+                    <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Trợ lý AI tra cứu kỹ thuật & tự động hóa tác nghiệp.</p>
                   </div>
                   <div className="hidden lg:block absolute right-0 top-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent to-[#0693E3] translate-x-full z-0">
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#0693E3] shadow-[0_0_10px_#0693e3]"></div>
                   </div>
                 </div>
 
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-8 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center flex-shrink-0">
                     <Shield className="w-7 h-7 text-white" />
                   </div>
                   <div className="pl-5 py-2 flex-1">
-                    <h4 className="font-black text-base text-purple-600 uppercase mb-1">Camera Giám Sát</h4>
-                    <p className="text-sm text-slate-600 hidden md:block">Thi công camera an ninh văn phòng, nhà xưởng.</p>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-purple-600 uppercase mb-1">Camera Giám Sát</h4>
+                    <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Thi công camera an ninh văn phòng, nhà xưởng.</p>
                   </div>
                   <div className="hidden lg:block absolute right-0 top-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent to-purple-500 translate-x-full z-0">
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]"></div>
                   </div>
                 </div>
 
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-8 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-400 flex items-center justify-center flex-shrink-0">
                     <Laptop className="w-7 h-7 text-white" />
                   </div>
                   <div className="pl-5 py-2 flex-1">
-                    <h4 className="font-black text-base text-cyan-600 uppercase mb-1">Máy Tính & TB Văn Phòng</h4>
-                    <p className="text-sm text-slate-600 hidden md:block">Cung cấp PC, Laptop, máy in, máy chiếu đồng bộ.</p>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-cyan-600 uppercase mb-1">Máy Tính & TB Văn Phòng</h4>
+                    <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Cung cấp PC, Laptop, máy in, máy chiếu đồng bộ.</p>
                   </div>
                   <div className="hidden lg:block absolute right-0 top-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent to-cyan-500 translate-x-full z-0">
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-cyan-500 shadow-[0_0_10px_#06b6d4]"></div>
@@ -369,39 +369,39 @@ export default function Home() {
 
               {/* RIGHT COLUMN */}
               <div className="flex flex-col gap-4 lg:gap-5">
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-8 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center flex-shrink-0">
                     <Server className="w-7 h-7 text-white" />
                   </div>
                   <div className="pr-5 py-2 flex-1 text-right">
-                    <h4 className="font-black text-base text-blue-700 uppercase mb-1">Hạ Tầng Mạng</h4>
-                    <p className="text-sm text-slate-600 hidden md:block">Thiết kế LAN, WiFi, Firewall, Server an toàn.</p>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-blue-700 uppercase mb-1">Hạ Tầng Mạng</h4>
+                    <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Thiết kế LAN, WiFi, Firewall, Server an toàn.</p>
                   </div>
                   <div className="hidden lg:block absolute left-0 top-1/2 w-48 h-0.5 bg-gradient-to-l from-transparent to-blue-600 -translate-x-full z-0">
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-blue-600 shadow-[0_0_10px_#2563eb]"></div>
                   </div>
                 </div>
 
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-8 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center flex-shrink-0">
                     <HeadphonesIcon className="w-7 h-7 text-white" />
                   </div>
                   <div className="pr-5 py-2 flex-1 text-right">
-                    <h4 className="font-black text-base text-emerald-600 uppercase mb-1">Dịch Vụ IT</h4>
-                    <p className="text-sm text-slate-600 hidden md:block">IT Helpdesk, bảo trì định kỳ, xử lý sự cố.</p>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-emerald-600 uppercase mb-1">Dịch Vụ IT</h4>
+                    <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">IT Helpdesk, bảo trì định kỳ, xử lý sự cố.</p>
                   </div>
                   <div className="hidden lg:block absolute left-0 top-1/2 w-32 h-0.5 bg-gradient-to-l from-transparent to-emerald-500 -translate-x-full z-0">
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]"></div>
                   </div>
                 </div>
 
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-8 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-orange-400 to-amber-600 flex items-center justify-center flex-shrink-0">
                     <Cloud className="w-7 h-7 text-white" />
                   </div>
                   <div className="pr-5 py-2 flex-1 text-right">
-                    <h4 className="font-black text-base text-orange-500 uppercase mb-1">Phần mềm & Số hóa</h4>
-                    <p className="text-sm text-slate-600 hidden md:block">Chữ ký số, hóa đơn điện tử, phần mềm quản lý.</p>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-orange-500 uppercase mb-1">Phần mềm & Số hóa</h4>
+                    <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Chữ ký số, hóa đơn điện tử, phần mềm quản lý.</p>
                   </div>
                   <div className="hidden lg:block absolute left-0 top-1/2 w-48 h-0.5 bg-gradient-to-l from-transparent to-orange-500 -translate-x-full z-0">
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_10px_#f59e0b]"></div>
