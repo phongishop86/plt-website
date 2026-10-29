@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-sans">
       {/* HERO SECTION (High-Tech Style) */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#001533]">
+      <section className="relative pt-12 pb-14 md:pt-16 md:pb-20 overflow-hidden bg-[#001533]">
         <div className="absolute inset-0 z-0 opacity-40">
           <Image 
             src="/hero-bg.png" 
@@ -81,7 +81,7 @@ export default function Home() {
               Phát Lộc Tech phát triển các giải pháp trợ lý AI thông minh tích hợp trên nền tảng Claude, hỗ trợ đội ngũ IT tra cứu tài liệu kỹ thuật, tự động hóa tác nghiệp và chuẩn hóa hạ tầng số doanh nghiệp với tiêu chuẩn bảo mật khắt khe nhất.
             </p>
             
-            <div className="flex flex-wrap gap-4 mb-16">
+            <div className="flex flex-wrap gap-4">
               <Link href="#giai-phap-ai">
                 <Button size="lg" className="bg-[#FF6900] hover:bg-[#e65c00] text-white shadow-[0_0_20px_rgba(255,105,0,0.4)] px-8 py-6 text-lg rounded-xl h-full font-bold flex items-center gap-2">
                   <Bot className="w-5 h-5" /> Khám phá Giải pháp AI
