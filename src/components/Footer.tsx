@@ -34,7 +34,7 @@ export function Footer() {
           </div>
 
           {/* Links Col 1 */}
-          <div className="lg:col-span-2 lg:col-start-6">
+          <div className="lg:col-span-3">
             <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Dịch Vụ Lõi</h4>
             <ul className="space-y-3 text-sm">
               <li><Link href="/#giai-phap-ai" className="hover:text-[#0693E3] flex items-center gap-2 text-cyan-400 font-semibold"><ChevronRight className="w-4 h-4"/> Giải pháp AI Vận hành CNTT</Link></li>
