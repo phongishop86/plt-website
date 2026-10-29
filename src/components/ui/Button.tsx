@@ -3,23 +3,32 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
+/**
+ * Quy ước nút:
+ * - cta (cam): hành động chính dẫn tới liên hệ/báo giá — mỗi khu vực chỉ 1 nút cam
+ * - default (navy): hành động thường
+ * - outline: hành động phụ
+ * - onDark: hành động phụ trên nền tối
+ */
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 overflow-hidden group",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold transition-colors disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary text-white",
-        secondary: "bg-secondary text-white",
-        accent: "bg-accent text-white",
-        outline: "border border-input bg-background hover:text-accent-foreground",
-        ghost: "hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        default: "bg-navy text-white hover:bg-navy-deep",
+        cta: "bg-orange text-white hover:bg-orange-dark",
+        accent: "bg-orange text-white hover:bg-orange-dark",
+        secondary: "bg-sky text-white hover:bg-navy",
+        outline: "border border-line bg-white text-ink hover:border-navy hover:text-navy",
+        onDark: "border border-white/25 bg-white/5 text-white hover:bg-white/15",
+        ghost: "text-ink hover:bg-paper",
+        link: "text-navy underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-11 px-5 text-sm",
+        sm: "h-9 px-3 text-sm",
+        lg: "h-13 px-6 text-base",
+        icon: "h-11 w-11",
       },
     },
     defaultVariants: {
@@ -38,21 +47,7 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
-        {variant !== "link" && variant !== "ghost" && variant !== "outline" && (
-          <span className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-        )}
-        {variant === "outline" && (
-          <span className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        )}
-        <span className="relative z-10 flex items-center gap-2">{props.children}</span>
-      </Comp>
-    )
+    return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
   }
 )
 Button.displayName = "Button"

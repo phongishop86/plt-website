@@ -1,33 +1,74 @@
 @import "tailwindcss";
 
+/*
+ * Bộ màu Phát Lộc Tech
+ * - navy: màu thương hiệu chính (chữ tiêu đề, nền dải tối)
+ * - sky: điểm nhấn thông tin (biểu tượng, liên kết)
+ * - orange: CHỈ dùng cho nút hành động (Gọi, Báo giá)
+ */
 :root {
-  --background: #F8FAFC;
-  --foreground: #32373C;
-  
-  --primary: #003388;
-  --secondary: #0693E3;
-  --accent: #FF6900;
-  --success: #00D084;
+  --navy: #003388;
+  --navy-deep: #0a1f44;
+  --sky: #0693e3;
+  --orange: #ff6900;
+  --orange-dark: #e55d00;
+  --ink: #16213a;
+  --muted: #55627a;
+  --paper: #f5f7fb;
+  --line: #dde4ef;
+  --white: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-success: var(--success);
-  
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-sky: var(--sky);
+  --color-orange: var(--orange);
+  --color-orange-dark: var(--orange-dark);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-paper: var(--paper);
+  --color-line: var(--line);
+
+  /* giữ tên cũ để các trang chưa đổi vẫn đúng màu */
+  --color-background: var(--white);
+  --color-foreground: var(--ink);
+  --color-primary: var(--navy);
+  --color-secondary: var(--sky);
+  --color-accent: var(--orange);
+  --color-muted-foreground: var(--muted);
+  --color-input: var(--line);
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-vn), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--white);
+  color: var(--ink);
   font-family: var(--font-sans);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sky);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
