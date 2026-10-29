@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
+import { LeadForm } from "@/components/LeadForm";
 import { ContactButton } from "@/components/ContactButton";
 import { 
   Monitor, Server, Shield, Cloud, Code, FileDigit, Search, FileText, Wrench, 
@@ -588,50 +589,12 @@ export default function Home() {
 
             {/* Form Fields Side */}
             <div className="w-full md:w-7/12 p-10 lg:p-14 bg-white">
-              <form 
-                action="https://formsubmit.co/phatloctech.ltd@gmail.com" 
-                method="POST" 
-                className="space-y-6"
-              >
-                {/* FormSubmit Configurations */}
-                <input type="hidden" name="_subject" value="[Phát Lộc Tech] Yêu Cầu Báo Giá Mới Từ Website" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://phatloctech.vn/#bao-gia" />
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-2">Họ và Tên *</label>
-                    <input id="name" name="Họ và Tên" type="text" placeholder="Nhập họ tên" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-2">Số điện thoại *</label>
-                    <input id="phone" name="Số điện thoại" type="tel" placeholder="09xx xxx xxx" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]" />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="svc" className="block text-sm font-bold text-slate-700 mb-2">Loại dịch vụ quan tâm</label>
-                  <select id="svc" name="Loại dịch vụ quan tâm" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]">
-                    <option>Giải pháp AI Vận hành CNTT</option>
-                    <option>Hạ tầng mạng & Máy chủ</option>
-                    <option>Dịch vụ IT Helpdesk & Bảo trì</option>
-                    <option>Camera an ninh & Giám sát</option>
-                    <option>Máy tính & Thiết bị văn phòng</option>
-                    <option>Phần mềm & Số hóa doanh nghiệp</option>
-                    <option>Khác</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="note" className="block text-sm font-bold text-slate-700 mb-2">Chi tiết nhu cầu</label>
-                  <textarea id="note" name="Chi tiết nhu cầu" rows={4} placeholder="Ví dụ: Cần lắp 8 camera cho nhà xưởng..." className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]"></textarea>
-                </div>
-                <Button 
-                  type="submit" 
-                  className="w-full py-6 text-lg font-bold bg-[#FF6900] hover:bg-[#e65c00] text-white rounded-xl shadow-lg shadow-orange-500/30"
-                >
-                  Gửi Yêu Cầu Báo Giá
-                </Button>
-              </form>
+              <LeadForm
+                source="trang-chu"
+                notePlaceholder="Ví dụ: Cần lắp 8 camera cho nhà xưởng..."
+                submitLabel="Gửi Yêu Cầu Báo Giá"
+                buttonClassName="w-full py-6 text-lg font-bold bg-[#FF6900] hover:bg-[#e65c00] text-white rounded-xl shadow-lg shadow-orange-500/30"
+              />
             </div>
 
           </div>
