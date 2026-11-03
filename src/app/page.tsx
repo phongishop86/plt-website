@@ -255,10 +255,10 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                  Cam Kết Bảo Mật Cấp Doanh Nghiệp & Quyền Riêng Tư Dữ Liệu
+                  Định Hướng Bảo Mật & Quyền Riêng Tư Dữ Liệu
                 </h4>
                 <p className="text-slate-300 text-sm leading-relaxed max-w-3xl">
-                  Các giải pháp AI của Phát Lộc Tech được thiết kế theo nguyên tắc <strong>Privacy-First & Zero Data Retention</strong>: Dữ liệu kỹ thuật và truy vấn nội bộ của doanh nghiệp tuyệt đối không được dùng để tái huấn luyện mô hình. Mã hóa toàn diện chuẩn TLS 1.3 và AES-256.
+                  Các giải pháp AI của Phát Lộc Tech đang trong lộ trình phát triển. Khi triển khai cho khách hàng, phạm vi dữ liệu, nơi lưu trữ và biện pháp bảo mật sẽ được thống nhất bằng văn bản trước khi vận hành.
                 </p>
               </div>
             </div>

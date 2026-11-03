@@ -50,10 +50,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Chính Sách</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo hành</Link></li>
-              <li><Link href="#" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Điều khoản giao dịch</Link></li>
-              <li><Link href="#" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo mật</Link></li>
-              <li><Link href="#" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Vận chuyển & Giao nhận</Link></li>
+              <li><Link href="/chinh-sach-bao-mat" className="hover:text-[#0693E3] flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Chính sách bảo mật</Link></li>
             </ul>
           </div>
 

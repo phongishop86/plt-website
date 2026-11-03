@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "./ui/Button";
+import { ConsentCheckbox } from "./ConsentCheckbox";
 
 type Props = {
   /** Ghi nhận form được gửi từ đâu (hiện trong Google Sheet / email) */
@@ -52,6 +53,7 @@ export function LeadForm({
           email: data.get("email") ?? "",
           service: data.get("service"),
           note: data.get("note"),
+          consent: data.get("consent") === "on",
           website: data.get("website"), // ô ẩn chống spam
           source,
         }),
@@ -109,6 +111,8 @@ export function LeadForm({
         <label htmlFor={`${source}-note`} className="block text-sm font-bold text-slate-700 mb-2">Chi tiết nhu cầu</label>
         <textarea id={`${source}-note`} name="note" rows={4} placeholder={notePlaceholder} className={inputClass}></textarea>
       </div>
+
+      <ConsentCheckbox id={`${source}-consent`} />
 
       <div aria-live="polite">
         {status === "success" && (

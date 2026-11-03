@@ -13,6 +13,7 @@ type Lead = {
   service: string;
   note: string;
   source: string;
+  consentAt: string;
 };
 
 const clip = (v: unknown, max: number) =>
@@ -34,7 +35,7 @@ async function saveToSheet(lead: Lead): Promise<boolean> {
     const sheets = google.sheets({ auth, version: "v4" });
     await sheets.spreadsheets.values.append({
       spreadsheetId: GOOGLE_SHEET_ID,
-      range: "Sheet1!A1:G1",
+      range: "Sheet1!A1:H1",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
@@ -46,6 +47,7 @@ async function saveToSheet(lead: Lead): Promise<boolean> {
             lead.note,
             lead.email,
             lead.source,
+            `Đồng ý xử lý dữ liệu: ${lead.consentAt}`,
           ],
         ],
       },
@@ -78,6 +80,7 @@ async function sendEmail(lead: Lead): Promise<boolean> {
         "Loại dịch vụ quan tâm": lead.service,
         "Chi tiết nhu cầu": lead.note || "(không nhập)",
         "Gửi từ": lead.source,
+        "Đồng ý xử lý dữ liệu": lead.consentAt,
       }),
       signal: AbortSignal.timeout(8000),
     });
@@ -105,7 +108,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   }
 
+  if (body.consent !== true) {
+    return NextResponse.json(
+      { error: "Vui lòng đồng ý với chính sách bảo vệ dữ liệu cá nhân trước khi gửi." },
+      { status: 400 }
+    );
+  }
+
   const lead: Lead = {
+    consentAt: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }),
     name: clip(body.name, 120),
     phone: clip(body.phone, 30),
     email: clip(body.email, 120),

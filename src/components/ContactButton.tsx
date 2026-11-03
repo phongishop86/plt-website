@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { Button } from "./ui/Button";
+import { ConsentCheckbox } from "./ConsentCheckbox";
 
 export function ContactButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   
+  const [consent, setConsent] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -25,12 +27,13 @@ export function ContactButton() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, consent, source: "popup-tu-van" }),
       });
       
       if (response.ok) {
         setIsSuccess(true);
         setFormData({ name: "", phone: "", service: "Khác", note: "" });
+        setConsent(false);
         setTimeout(() => {
           setIsOpen(false);
           setIsSuccess(false);
@@ -127,6 +130,9 @@ export function ContactButton() {
                       value={formData.note}
                       onChange={(e) => setFormData({...formData, note: e.target.value})}
                     />
+                  </div>
+                  <div onChange={(e) => setConsent((e.target as HTMLInputElement).checked)}>
+                    <ConsentCheckbox id="popup-consent" />
                   </div>
                   <Button 
                     type="submit" 
