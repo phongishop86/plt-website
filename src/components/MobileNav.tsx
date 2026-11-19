@@ -40,7 +40,7 @@ export function MobileNav() {
         aria-controls={panelId}
         aria-label={open ? "Đóng menu" : "Mở menu"}
         onClick={() => setOpen((v) => !v)}
-        className="relative grid h-11 w-11 place-items-center rounded-lg text-[#003388] transition-[background-color,transform] duration-150 ease-out-strong hover:bg-slate-100 active:scale-95"
+        className="relative grid h-11 w-11 place-items-center rounded-lg text-primary transition-[background-color,transform] duration-150 ease-out-strong hover:bg-slate-100 active:scale-95"
       >
         <Menu
           className={`absolute h-6 w-6 transition-[opacity,transform,filter] duration-200 ease-out-strong ${
@@ -71,7 +71,7 @@ export function MobileNav() {
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="flex min-h-12 items-center border-b border-slate-100 text-base font-bold text-[#003388] last:border-b-0 hover:text-[#0693E3]"
+                className="flex min-h-12 items-center border-b border-slate-100 text-base font-bold text-primary last:border-b-0 hover:text-secondary"
               >
                 {l.label}
               </Link>
@@ -81,7 +81,7 @@ export function MobileNav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="flex h-12 items-center justify-center rounded-lg bg-[#FF6900] font-bold text-white transition-transform duration-150 ease-out-strong active:scale-[0.97]"
+              className="flex h-12 items-center justify-center rounded-lg bg-accent font-bold text-white transition-transform duration-150 ease-out-strong active:scale-[0.97]"
             >
               Nhận tư vấn
             </Link>

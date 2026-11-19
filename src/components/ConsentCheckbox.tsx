@@ -10,12 +10,12 @@ export function ConsentCheckbox({ id }: { id: string }) {
           name="consent"
           type="checkbox"
           required
-          className="mt-1 h-4 w-4 shrink-0 accent-[#0693E3]"
+          className="mt-1 h-4 w-4 shrink-0 accent-secondary"
         />
         <span>
           Tôi đồng ý để CÔNG TY TNHH PHÁT LỘC TECH xử lý họ tên, số điện thoại, email và nội dung đã nhập
           nhằm liên hệ tư vấn, báo giá theo{" "}
-          <Link href="/chinh-sach-bao-mat" target="_blank" className="font-semibold text-[#0693E3] underline">
+          <Link href="/chinh-sach-bao-mat" target="_blank" className="font-semibold text-secondary underline">
             Chính sách bảo vệ dữ liệu cá nhân
           </Link>
           . *

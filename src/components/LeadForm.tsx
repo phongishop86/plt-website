@@ -14,7 +14,7 @@ type Props = {
 };
 
 const inputClass =
-  "w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0693E3]";
+  "w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-secondary";
 
 const SERVICES = [
   "Giải pháp AI Vận hành CNTT",

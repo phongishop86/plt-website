@@ -26,6 +26,18 @@
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
+  --color-navy: #001533;
+  --color-navy-2: #002244;
+  --color-navy-line: #1e3a6a;
+  --color-primary-deep: #002266;
+  --color-accent-hover: #e65c00;
+  --color-zalo: #0068FF;
+
+  /* Section rhythm: three tiers (hero is its own case). */
+  --spacing-section-tight: 2.5rem;
+  --spacing-section-tight-lg: 3rem;
+  --spacing-section: 5rem;
+
   --ease-out-strong: var(--ease-out);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }

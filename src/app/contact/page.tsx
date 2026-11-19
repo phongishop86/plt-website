@@ -16,7 +16,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 font-sans">
       {/* HERO SECTION */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-[#001533]">
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image 
             src="/hero-bg.png" 
@@ -26,11 +26,11 @@ export default function ContactPage() {
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#001533] to-transparent z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent z-0"></div>
         
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-3xl md:text-5xl font-black text-white mb-4 uppercase tracking-wide">
-            Liên Hệ <span className="text-[#0693E3]">&</span> Hợp Tác
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
+            Liên hệ <span className="text-secondary">&</span> hợp tác
           </h1>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             Chúng tôi luôn sẵn sàng lắng nghe và đưa ra giải pháp công nghệ tối ưu nhất cho doanh nghiệp của bạn.
@@ -47,7 +47,7 @@ export default function ContactPage() {
             <div className="w-full lg:w-5/12">
               <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden sticky top-32">
                 {/* Profile Cover */}
-                <div className="h-32 bg-gradient-to-r from-[#003388] to-[#0693E3] relative">
+                <div className="h-32 bg-gradient-to-r from-primary to-secondary relative">
                   <div className="absolute -bottom-16 left-8">
                     <div className="w-32 h-32 bg-white rounded-full p-2 shadow-lg">
                       {/* Avatar Placeholder */}
@@ -63,8 +63,8 @@ export default function ContactPage() {
                 
                 {/* Profile Info */}
                 <div className="pt-20 px-8 pb-8">
-                  <h2 className="text-2xl font-black text-[#003388] mb-1">Nguyễn Thanh Phong</h2>
-                  <p className="text-[#FF6900] font-bold text-sm uppercase tracking-wider mb-6">Giám Đốc / Người Sáng Lập</p>
+                  <h2 className="text-2xl font-black text-primary mb-1">Nguyễn Thanh Phong</h2>
+                  <p className="text-accent font-bold text-sm uppercase tracking-wider mb-6">Giám Đốc / Người Sáng Lập</p>
                   
                   <div className="space-y-4 text-slate-600 text-sm leading-relaxed mb-8">
                     <p>
@@ -78,13 +78,13 @@ export default function ContactPage() {
                   {/* Highlights */}
                   <div className="space-y-3 mb-8 border-y border-slate-100 py-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-[#0693E3]">
+                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-secondary">
                         <Briefcase className="w-4 h-4" />
                       </div>
                       <span className="text-sm font-medium text-slate-700">Chuyên gia Mạng & Hệ thống</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-[#0693E3]">
+                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-secondary">
                         <Award className="w-4 h-4" />
                       </div>
                       <span className="text-sm font-medium text-slate-700">Cam kết chất lượng 100%</span>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                   {/* Contact Direct */}
                   <div className="space-y-4">
                     <a href="tel:0932685794" className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group">
-                      <div className="w-10 h-10 rounded-full bg-[#FF6900] flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
+                      <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
                         <Phone className="w-5 h-5" />
                       </div>
                       <div>
@@ -104,7 +104,7 @@ export default function ContactPage() {
                     </a>
                     
                     <a href="mailto:info@phatloctech.vn" className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group">
-                      <div className="w-10 h-10 rounded-full bg-[#0693E3] flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
+                      <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
                         <Mail className="w-5 h-5" />
                       </div>
                       <div>
@@ -131,7 +131,7 @@ export default function ContactPage() {
               
               {/* Form Card */}
               <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12">
-                <h3 className="text-2xl font-black text-[#003388] mb-2">Gửi Yêu Cầu Cho Chúng Tôi</h3>
+                <h3 className="text-2xl font-black text-primary mb-2">Gửi Yêu Cầu Cho Chúng Tôi</h3>
                 <p className="text-slate-500 mb-8">Chúng tôi sẽ phản hồi yêu cầu của bạn trong vòng 30 phút (giờ hành chính).</p>
                 
                 <LeadForm
@@ -139,7 +139,7 @@ export default function ContactPage() {
                   showEmail
                   notePlaceholder="Ví dụ: Cần tư vấn giải pháp IT cho văn phòng..."
                   submitLabel="Gửi Yêu Cầu"
-                  buttonClassName="w-full py-6 text-lg font-bold bg-gradient-to-r from-[#0693E3] to-[#003388] text-white rounded-xl shadow-lg shadow-blue-500/30 border-0 hover:opacity-90"
+                  buttonClassName="w-full py-6 text-lg font-bold bg-gradient-to-r from-secondary to-primary text-white rounded-xl shadow-lg shadow-blue-500/30 border-0 hover:opacity-90"
                 />
               </div>
 
@@ -147,13 +147,13 @@ export default function ContactPage() {
               <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
                 <div className="p-8 border-b border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
                   <div>
-                    <h3 className="text-xl font-black text-[#003388]">Văn phòng Phát Lộc Tech</h3>
+                    <h3 className="text-xl font-black text-primary">Văn phòng Phát Lộc Tech</h3>
                     <div className="flex items-center gap-2 mt-2 text-slate-500 text-sm">
-                      <MapPin className="w-4 h-4 text-[#FF6900]" />
+                      <MapPin className="w-4 h-4 text-accent" />
                       <span>Số 491/1 Trường Chinh, P. Tân Bình, TP.HCM</span>
                     </div>
                   </div>
-                  <div className="bg-blue-50 text-[#003388] px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap">
+                  <div className="bg-blue-50 text-primary px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap">
                     MST: 0319347662
                   </div>
                 </div>
