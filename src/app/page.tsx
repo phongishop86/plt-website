@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { LeadForm } from "@/components/LeadForm";
 import { ContactButton } from "@/components/ContactButton";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { 
   Monitor, Server, Shield, Cloud, Code, FileDigit, Search, FileText, Wrench, 
   Handshake, CheckCircle, HeadphonesIcon, TrendingUp, Cpu, HardDrive, Printer, 
@@ -31,10 +32,11 @@ export default function Home() {
       requestAnimationFrame(tick);
     };
 
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          animate(entry.target as HTMLSpanElement);
+          if (!reduceMotion) animate(entry.target as HTMLSpanElement);
           io.unobserve(entry.target);
         }
       });
@@ -51,9 +53,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen font-sans">
+      <RevealOnScroll />
       {/* HERO SECTION (High-Tech Style) */}
       <section className="relative pt-12 pb-14 md:pt-16 md:pb-20 overflow-hidden bg-[#001533]">
-        <div className="absolute inset-0 z-0 opacity-40">
+        <div className="hero-bg absolute inset-0 z-0 opacity-40">
           <Image 
             src="/hero-bg.png" 
             alt="Futuristic Cityscape" 
@@ -65,24 +68,24 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#001533] via-[#001533]/80 to-transparent z-0"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-[#0693E3]/30 backdrop-blur-md mb-6">
-              <Sparkles className="w-4 h-4 text-[#0693E3] animate-pulse" />
+            <div className="hero-in hero-in-1 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-[#0693E3]/30 backdrop-blur-md mb-6">
+              <Sparkles className="w-4 h-4 text-[#0693E3]" />
               <span className="text-xs md:text-sm font-bold text-blue-200 uppercase tracking-widest">
                 Đổi Mới Sáng Tạo • Ứng Dụng Nền Tảng Claude AI
               </span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tight uppercase">
+            <h1 className="hero-in hero-in-2 text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tight uppercase">
               Giải Pháp AI Vận Hành CNTT<br/>
               <span className="text-[#0693E3] drop-shadow-[0_0_20px_rgba(6,147,227,0.6)] inline-block mt-2">
                 Cho Doanh Nghiệp & Tổ Chức
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl leading-relaxed">
+            <p className="hero-in hero-in-3 text-lg md:text-xl text-slate-300 mb-8 max-w-3xl leading-relaxed">
               Phát Lộc Tech phát triển các giải pháp trợ lý AI thông minh tích hợp trên nền tảng Claude, hỗ trợ đội ngũ IT tra cứu tài liệu kỹ thuật, tự động hóa tác nghiệp và chuẩn hóa hạ tầng số doanh nghiệp với tiêu chuẩn bảo mật khắt khe nhất.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="hero-in hero-in-4 flex flex-wrap gap-4">
               <Link href="#giai-phap-ai">
                 <Button size="lg" className="bg-[#FF6900] hover:bg-[#e65c00] text-white shadow-[0_0_20px_rgba(255,105,0,0.4)] px-8 py-6 text-lg rounded-xl h-full font-bold flex items-center gap-2">
                   <Bot className="w-5 h-5" /> Khám phá Giải pháp AI
@@ -102,25 +105,25 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 divide-x divide-white/20 text-white">
             <div className="flex flex-col items-center justify-center">
-              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md">
+              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md tabular-nums">
                 <span className="count" data-target="3" ref={(el) => { if(el) counterRefs.current[0] = el; }}>3</span>+
               </div>
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Năm Kinh Nghiệm</p>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md">
+              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md tabular-nums">
                 <span className="count" data-target="30" ref={(el) => { if(el) counterRefs.current[1] = el; }}>30</span>+
               </div>
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Khách Hàng B2B</p>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md">
+              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md tabular-nums">
                 <span className="count" data-target="100" ref={(el) => { if(el) counterRefs.current[2] = el; }}>100</span>+
               </div>
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Thiết Bị Lắp Đặt</p>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md text-[#FF6900]">24/7</div>
+              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md tabular-nums text-[#FF6900]">24/7</div>
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Hỗ Trợ Kỹ Thuật</p>
             </div>
           </div>
@@ -147,10 +150,10 @@ export default function Home() {
           </div>
 
           {/* 3 Pillars / Phases Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-8">
+          <div data-reveal className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-8">
             
             {/* Phase 1 */}
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-[#0693E3]/50 transition-all hover:-translate-y-1 group relative flex flex-col justify-between">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-[#0693E3]/50 hover:bg-white/[0.07] transition-[border-color,background-color] duration-200 ease-out-strong group relative flex flex-col justify-between">
               <div className="absolute top-4 right-4 px-3 py-1 bg-[#FF6900] text-white text-xs font-black uppercase rounded-full shadow-lg">
                 Ưu tiên cốt lõi
               </div>
@@ -184,7 +187,7 @@ export default function Home() {
             </div>
 
             {/* Phase 2 */}
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-[#0693E3]/50 transition-all hover:-translate-y-1 group relative flex flex-col justify-between">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-[#0693E3]/50 hover:bg-white/[0.07] transition-[border-color,background-color] duration-200 ease-out-strong group relative flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-4 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
                   <Database className="w-6 h-6 text-white" />
@@ -215,7 +218,7 @@ export default function Home() {
             </div>
 
             {/* Phase 3 */}
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-[#0693E3]/50 transition-all hover:-translate-y-1 group relative flex flex-col justify-between">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-[#0693E3]/50 hover:bg-white/[0.07] transition-[border-color,background-color] duration-200 ease-out-strong group relative flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-4 shadow-lg shadow-teal-500/20 group-hover:scale-110 transition-transform">
                   <Layers className="w-6 h-6 text-white" />
@@ -284,14 +287,14 @@ export default function Home() {
               Chúng tôi không phải doanh nghiệp lớn nhất, nhưng cam kết là đối tác phản hồi nhanh nhất và minh bạch nhất với từng khách hàng B2B của mình.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div data-reveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Zap, title: "Phản hồi trong 30 phút", desc: "Yêu cầu tư vấn hoặc báo giá được đội ngũ kỹ thuật phản hồi ngay lập tức." },
               { icon: Shield, title: "Chính hãng 100%", desc: "Toàn bộ thiết bị có nguồn gốc rõ ràng, đầy đủ CO/CQ, không hàng trôi nổi." },
               { icon: CheckCircle, title: "Bảo hành 1 đổi 1", desc: "Chính sách bảo hành rõ ràng, hỗ trợ đổi trả cực nhanh khi có lỗi." },
               { icon: FileText, title: "Giá cả minh bạch", desc: "Báo giá chi tiết từng hạng mục, không phát sinh chi phí ẩn." }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:-translate-y-2 hover:shadow-xl transition-all group">
+              <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition-shadow duration-200 ease-out-strong group">
                 <div className="w-14 h-14 bg-blue-50 text-[#0693E3] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#0693E3] group-hover:text-white transition-colors">
                   <item.icon className="w-7 h-7" />
                 </div>
@@ -328,7 +331,7 @@ export default function Home() {
               
               {/* LEFT COLUMN */}
               <div className="flex flex-col gap-4 lg:gap-5">
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#0693E3] to-[#003388] flex items-center justify-center flex-shrink-0">
                     <Bot className="w-7 h-7 text-white" />
                   </div>
@@ -341,7 +344,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center flex-shrink-0">
                     <Shield className="w-7 h-7 text-white" />
                   </div>
@@ -354,7 +357,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-400 flex items-center justify-center flex-shrink-0">
                     <Laptop className="w-7 h-7 text-white" />
                   </div>
@@ -370,7 +373,7 @@ export default function Home() {
 
               {/* RIGHT COLUMN */}
               <div className="flex flex-col gap-4 lg:gap-5">
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center flex-shrink-0">
                     <Server className="w-7 h-7 text-white" />
                   </div>
@@ -383,7 +386,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center flex-shrink-0">
                     <HeadphonesIcon className="w-7 h-7 text-white" />
                   </div>
@@ -396,7 +399,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-orange-400 to-amber-600 flex items-center justify-center flex-shrink-0">
                     <Cloud className="w-7 h-7 text-white" />
                   </div>
@@ -461,51 +464,51 @@ export default function Home() {
             </h2>
             <p className="text-slate-600 text-base max-w-2xl mx-auto">Mỗi dự án đều được thực hiện với tiêu chuẩn chất lượng cao nhất, dù lớn hay nhỏ.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div data-reveal className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Project 1 */}
-            <div className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group hover:shadow-xl transition-all">
+            <div className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group hover:shadow-xl transition-shadow duration-200 ease-out-strong">
               <div className="h-36 bg-[#001533] relative flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(#1e3a6a_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
-                <Server className="w-14 h-14 text-[#0693E3] group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
+                <Server className="w-14 h-14 text-[#0693E3] group-hover:scale-110 transition-transform duration-300 ease-out-strong drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
                 <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">HẠ TẦNG & MÁY CHỦ</span>
               </div>
               <div className="p-5">
                 <h3 className="font-black text-lg text-[#003388] mb-2 leading-snug">Bảo trì hệ thống máy chủ cho Doanh nghiệp quy mô lớn</h3>
                 <p className="text-slate-600 text-sm mb-4">Quản trị, kiểm tra an toàn định kỳ, tối ưu hóa hiệu năng hệ thống server và bảo đảm tính sẵn sàng cao (High Availability) phục vụ tác nghiệp doanh nghiệp 24/7.</p>
-                <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer group-hover:gap-3 transition-all">
-                  Xem chi tiết <ArrowRight className="w-4 h-4" />
+                <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer ">
+                  Xem chi tiết <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-out-strong group-hover:translate-x-1" />
                 </div>
               </div>
             </div>
             
             {/* Project 2 */}
-            <div className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group hover:shadow-xl transition-all">
+            <div className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group hover:shadow-xl transition-shadow duration-200 ease-out-strong">
               <div className="h-36 bg-[#001533] relative flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(#1e3a6a_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
-                <Shield className="w-14 h-14 text-[#0693E3] group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
+                <Shield className="w-14 h-14 text-[#0693E3] group-hover:scale-110 transition-transform duration-300 ease-out-strong drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
                 <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">HỆ THỐNG AN NINH</span>
               </div>
               <div className="p-5">
                 <h3 className="font-black text-lg text-[#003388] mb-2 leading-snug">Thi công hệ thống an ninh cho Công ty Công nghệ APA</h3>
                 <p className="text-slate-600 text-sm mb-4">Triển khai hệ thống camera IP giám sát thông minh, kiểm soát an ninh đa tầng và lưu trữ dữ liệu tập trung phục vụ sản xuất công nghệ cao.</p>
-                <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer group-hover:gap-3 transition-all">
-                  Xem chi tiết <ArrowRight className="w-4 h-4" />
+                <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer ">
+                  Xem chi tiết <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-out-strong group-hover:translate-x-1" />
                 </div>
               </div>
             </div>
 
             {/* Project 3 */}
-            <div className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group hover:shadow-xl transition-all">
+            <div className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group hover:shadow-xl transition-shadow duration-200 ease-out-strong">
               <div className="h-36 bg-[#001533] relative flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(#1e3a6a_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
-                <Monitor className="w-14 h-14 text-[#0693E3] group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
+                <Monitor className="w-14 h-14 text-[#0693E3] group-hover:scale-110 transition-transform duration-300 ease-out-strong drop-shadow-[0_0_15px_rgba(6,147,227,0.5)]" />
                 <span className="absolute bottom-4 left-4 bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded text-xs font-bold font-mono border border-white/20">TRANG BỊ MÁY TÍNH</span>
               </div>
               <div className="p-5">
                 <h3 className="font-black text-lg text-[#003388] mb-2 leading-snug">Cung cấp, trang bị máy tính cho các trường học trên địa bàn</h3>
                 <p className="text-slate-600 text-sm mb-4">Cung cấp và lắp đặt đồng bộ phòng máy tính chuyên dụng, cấu hình mạng nội bộ và hỗ trợ kỹ thuật phục vụ công tác giảng dạy tin học.</p>
-                <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer group-hover:gap-3 transition-all">
-                  Xem chi tiết <ArrowRight className="w-4 h-4" />
+                <div className="text-[#FF6900] text-sm font-bold flex items-center gap-2 cursor-pointer ">
+                  Xem chi tiết <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-out-strong group-hover:translate-x-1" />
                 </div>
               </div>
             </div>

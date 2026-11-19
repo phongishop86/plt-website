@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "./ui/Button";
+import { MobileNav } from "./MobileNav";
 
 export function Header() {
   return (
@@ -17,23 +18,24 @@ export function Header() {
         <nav className="hidden lg:flex gap-8 items-center">
           <Link href="/" className="text-sm font-bold text-[#003388] hover:text-[#0693E3] transition-colors">Trang chủ</Link>
           <Link href="/#giai-phap-ai" className="text-sm font-bold text-[#0693E3] hover:text-[#003388] transition-colors flex items-center gap-1.5 bg-blue-50/80 px-3 py-1.5 rounded-full border border-blue-200">
-            <span className="w-2 h-2 rounded-full bg-[#0693E3] animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-[#0693E3]"></span>
             Giải pháp AI
           </Link>
           <Link href="/#dich-vu" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Hệ sinh thái CNTT</Link>
           <Link href="/#du-an" className="text-sm font-bold text-slate-600 hover:text-[#0693E3] transition-colors">Dự án</Link>
-          <Link href="/contact" className="text-sm font-bold text-[#FF6900] hover:text-[#e65c00] transition-colors">Contact</Link>
+          <Link href="/contact" className="text-sm font-bold text-[#FF6900] hover:text-[#e65c00] transition-colors">Liên hệ</Link>
         </nav>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
           <div className="hidden md:flex flex-col text-right">
             <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Hotline 24/7</span>
             <span className="text-lg font-black text-[#FF6900] leading-none mt-1">0932 685 794</span>
           </div>
-          <Link href="/contact">
+          <Link href="/contact" className="hidden sm:block">
             <Button className="bg-gradient-to-r from-[#0693E3] to-[#003388] hover:opacity-90 text-white font-bold shadow-lg shadow-blue-500/30 border-0">
               Nhận tư vấn
             </Button>
           </Link>
+          <MobileNav />
         </div>
       </div>
     </header>

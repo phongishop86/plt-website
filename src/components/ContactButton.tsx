@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "./ui/Button";
 import { ConsentCheckbox } from "./ConsentCheckbox";
 
 export function ContactButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   
@@ -16,6 +17,23 @@ export function ContactButton() {
     service: "Khác",
     note: "",
   });
+
+  const closeDialog = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+    }, 140);
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeDialog();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen, closeDialog]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,8 +53,8 @@ export function ContactButton() {
         setFormData({ name: "", phone: "", service: "Khác", note: "" });
         setConsent(false);
         setTimeout(() => {
-          setIsOpen(false);
-          setIsSuccess(false);
+          closeDialog();
+          setTimeout(() => setIsSuccess(false), 160);
         }, 3000);
       } else {
         alert("Có lỗi xảy ra, vui lòng thử lại sau.");
@@ -59,11 +77,21 @@ export function ContactButton() {
       </Button>
 
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in duration-300">
+        <div
+          data-closing={isClosing}
+          className="overlay-motion fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onMouseDown={(e) => { if (e.target === e.currentTarget) closeDialog(); }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Đăng ký nhận tư vấn"
+            data-closing={isClosing}
+            className="dialog-motion bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden"
+          >
             <div className="bg-[#003388] p-4 flex justify-between items-center text-white">
               <h3 className="font-bold text-lg">Đăng ký nhận tư vấn</h3>
-              <button onClick={() => setIsOpen(false)} className="text-white/70 hover:text-white transition-colors">
+              <button onClick={closeDialog} aria-label="Đóng" className="text-white/70 hover:text-white transition-colors active:scale-95">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </button>
             </div>
