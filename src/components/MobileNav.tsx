@@ -81,7 +81,7 @@ export function MobileNav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="flex h-12 items-center justify-center rounded-lg bg-accent font-bold text-white transition-transform duration-150 ease-out-strong active:scale-[0.97]"
+              className="flex h-12 items-center justify-center rounded-lg bg-gradient-to-r from-secondary to-primary font-bold text-white transition-transform duration-150 ease-out-strong active:scale-[0.97]"
             >
               Nhận tư vấn
             </Link>

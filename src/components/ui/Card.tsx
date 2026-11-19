@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("group relative rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden transition-all hover:shadow-md", className)} {...props}>
     {/* Gradient Glow Effect on Hover */}
-    <div className="absolute inset-0 z-0 bg-gradient-to-tr from-accent/5 via-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+    <div className="absolute inset-0 z-0 bg-gradient-to-tr from-primary/5 via-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
     <div className="relative z-10 h-full flex flex-col">
       {props.children}
     </div>

@@ -37,7 +37,7 @@ export function Footer() {
           <div className="lg:col-span-3">
             <h4 className="font-bold text-white mb-6 text-base">Dịch vụ lõi</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/#giai-phap-ai" className="hover:text-secondary flex items-center gap-2 text-cyan-400 font-semibold"><ChevronRight className="w-4 h-4"/> Giải pháp AI Vận hành CNTT</Link></li>
+              <li><Link href="/#giai-phap-ai" className="hover:text-secondary flex items-center gap-2 text-secondary font-semibold"><ChevronRight className="w-4 h-4"/> Giải pháp AI Vận hành CNTT</Link></li>
               <li><Link href="/#dich-vu" className="hover:text-secondary flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Hạ tầng mạng & Máy chủ</Link></li>
               <li><Link href="/#dich-vu" className="hover:text-secondary flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Dịch vụ IT Helpdesk</Link></li>
               <li><Link href="/#dich-vu" className="hover:text-secondary flex items-center gap-2"><ChevronRight className="w-4 h-4"/> Camera an ninh giám sát</Link></li>

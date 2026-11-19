@@ -123,7 +123,7 @@ export default function Home() {
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Thiết Bị Lắp Đặt</p>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md tabular-nums text-accent">24/7</div>
+              <div className="text-4xl md:text-5xl font-black mb-1 drop-shadow-md tabular-nums">24/7</div>
               <p className="text-sm font-bold uppercase tracking-wider text-blue-100">Hỗ Trợ Kỹ Thuật</p>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
             
             {/* Phase 1 */}
             <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-secondary/50 hover:bg-white/[0.07] transition-[border-color,background-color] duration-200 ease-out-strong group relative flex flex-col justify-between">
-              <div className="absolute top-4 right-4 px-3 py-1 bg-accent text-white text-xs font-black uppercase rounded-full shadow-lg">
+              <div className="absolute top-4 right-4 px-3 py-1 bg-primary border border-secondary/60 text-white text-xs font-black uppercase rounded-full shadow-lg">
                 Ưu tiên cốt lõi
               </div>
               <div>
@@ -189,30 +189,30 @@ export default function Home() {
             {/* Phase 2 */}
             <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-secondary/50 hover:bg-white/[0.07] transition-[border-color,background-color] duration-200 ease-out-strong group relative flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-4 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-primary flex items-center justify-center mb-4 shadow-lg shadow-secondary/20 group-hover:scale-110 transition-transform">
                   <Database className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Giai đoạn 2</div>
+                <div className="text-xs font-bold text-secondary uppercase tracking-wider mb-2">Giai đoạn 2</div>
                 <h3 className="text-lg font-black mb-2 text-white xl:whitespace-nowrap">Knowledge Search & Automation</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-3">
                   Hệ thống tìm kiếm ngữ nghĩa thông minh và tự động hóa tác nghiệp lặp lại. Phân loại ticket và điều phối yêu cầu hỗ trợ kỹ thuật tự động.
                 </p>
                 <ul className="space-y-1.5 text-[13px] text-slate-300 mb-3">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                     <span className="xl:whitespace-nowrap">Tìm kiếm ngữ nghĩa tài liệu kỹ thuật nội bộ</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                     <span className="xl:whitespace-nowrap">Tự động phân loại & định tuyến ticket hỗ trợ IT</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                     <span className="xl:whitespace-nowrap">Phân quyền chặt chẽ (RBAC) chuẩn doanh nghiệp</span>
                   </li>
                 </ul>
               </div>
-              <div className="pt-3 border-t border-white/10 text-xs xl:whitespace-nowrap text-indigo-200 font-semibold">
+              <div className="pt-3 border-t border-white/10 text-xs xl:whitespace-nowrap text-blue-200 font-semibold">
                 🎯 Mục tiêu: Tự động hóa 70% các tác vụ tra cứu & báo cáo
               </div>
             </div>
@@ -220,30 +220,30 @@ export default function Home() {
             {/* Phase 3 */}
             <div className="bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md hover:border-secondary/50 hover:bg-white/[0.07] transition-[border-color,background-color] duration-200 ease-out-strong group relative flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-4 shadow-lg shadow-teal-500/20 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-primary flex items-center justify-center mb-4 shadow-lg shadow-secondary/20 group-hover:scale-110 transition-transform">
                   <Layers className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Giai đoạn 3</div>
+                <div className="text-xs font-bold text-secondary uppercase tracking-wider mb-2">Giai đoạn 3</div>
                 <h3 className="text-lg font-black mb-2 text-white xl:whitespace-nowrap">Digital Solutions & Ecosystem</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-3">
                   Tích hợp trợ lý AI thông minh vào hệ thống website doanh nghiệp và các nền tảng số hóa quản trị tác nghiệp chuyên biệt.
                 </p>
                 <ul className="space-y-1.5 text-[13px] text-slate-300 mb-3">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                     <span className="xl:whitespace-nowrap">Website thông minh tích hợp trợ lý Claude</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                     <span className="xl:whitespace-nowrap">Quản lý đăng ký & điều hành hội thao doanh nghiệp</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
                     <span className="xl:whitespace-nowrap">Tự động bốc thăm, xếp lịch, cập nhật kết quả</span>
                   </li>
                 </ul>
               </div>
-              <div className="pt-3 border-t border-white/10 text-xs xl:whitespace-nowrap text-emerald-200 font-semibold">
+              <div className="pt-3 border-t border-white/10 text-xs xl:whitespace-nowrap text-blue-200 font-semibold">
                 🎯 Mục tiêu: Hệ sinh thái chuyển đổi số doanh nghiệp toàn diện
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                  Định Hướng Bảo Mật & Quyền Riêng Tư Dữ Liệu
+                  Định hướng bảo mật & quyền riêng tư dữ liệu
                 </h4>
                 <p className="text-slate-300 text-sm leading-relaxed max-w-3xl">
                   Các giải pháp AI của Phát Lộc Tech đang trong lộ trình phát triển. Khi triển khai cho khách hàng, phạm vi dữ liệu, nơi lưu trữ và biện pháp bảo mật sẽ được thống nhất bằng văn bản trước khi vận hành.
@@ -340,33 +340,33 @@ export default function Home() {
                     <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Trợ lý AI tra cứu kỹ thuật & tự động hóa tác nghiệp.</p>
                   </div>
                   <div className="hidden lg:block absolute right-0 top-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent to-secondary translate-x-full z-0">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_#0693e3]"></div>
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_var(--secondary)]"></div>
                   </div>
                 </div>
 
                 <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-secondary to-primary flex items-center justify-center flex-shrink-0">
                     <Shield className="w-7 h-7 text-white" />
                   </div>
                   <div className="pl-5 py-2 flex-1">
-                    <h4 className="font-black text-sm xl:whitespace-nowrap text-purple-600 mb-1">Camera giám sát</h4>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-primary mb-1">Camera giám sát</h4>
                     <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Thi công camera an ninh văn phòng, nhà xưởng.</p>
                   </div>
-                  <div className="hidden lg:block absolute right-0 top-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent to-purple-500 translate-x-full z-0">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]"></div>
+                  <div className="hidden lg:block absolute right-0 top-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent to-secondary translate-x-full z-0">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_var(--secondary)]"></div>
                   </div>
                 </div>
 
                 <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center pr-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-400 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-secondary to-primary flex items-center justify-center flex-shrink-0">
                     <Laptop className="w-7 h-7 text-white" />
                   </div>
                   <div className="pl-5 py-2 flex-1">
-                    <h4 className="font-black text-sm xl:whitespace-nowrap text-cyan-600 mb-1">Máy tính & TB văn phòng</h4>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-primary mb-1">Máy tính & TB văn phòng</h4>
                     <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Cung cấp PC, Laptop, máy in, máy chiếu đồng bộ.</p>
                   </div>
-                  <div className="hidden lg:block absolute right-0 top-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent to-cyan-500 translate-x-full z-0">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-cyan-500 shadow-[0_0_10px_#06b6d4]"></div>
+                  <div className="hidden lg:block absolute right-0 top-1/2 w-48 h-0.5 bg-gradient-to-r from-transparent to-secondary translate-x-full z-0">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_var(--secondary)]"></div>
                   </div>
                 </div>
               </div>
@@ -374,41 +374,41 @@ export default function Home() {
               {/* RIGHT COLUMN */}
               <div className="flex flex-col gap-4 lg:gap-5">
                 <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-secondary to-primary flex items-center justify-center flex-shrink-0">
                     <Server className="w-7 h-7 text-white" />
                   </div>
                   <div className="pr-5 py-2 flex-1 text-right">
-                    <h4 className="font-black text-sm xl:whitespace-nowrap text-blue-700 mb-1">Hạ tầng mạng</h4>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-primary mb-1">Hạ tầng mạng</h4>
                     <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Thiết kế LAN, WiFi, Firewall, Server an toàn.</p>
                   </div>
-                  <div className="hidden lg:block absolute left-0 top-1/2 w-48 h-0.5 bg-gradient-to-l from-transparent to-blue-600 -translate-x-full z-0">
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-blue-600 shadow-[0_0_10px_#2563eb]"></div>
+                  <div className="hidden lg:block absolute left-0 top-1/2 w-48 h-0.5 bg-gradient-to-l from-transparent to-secondary -translate-x-full z-0">
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_var(--secondary)]"></div>
                   </div>
                 </div>
 
                 <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-secondary to-primary flex items-center justify-center flex-shrink-0">
                     <HeadphonesIcon className="w-7 h-7 text-white" />
                   </div>
                   <div className="pr-5 py-2 flex-1 text-right">
-                    <h4 className="font-black text-sm xl:whitespace-nowrap text-emerald-600 mb-1">Dịch vụ IT</h4>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-primary mb-1">Dịch vụ IT</h4>
                     <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">IT Helpdesk, bảo trì định kỳ, xử lý sự cố.</p>
                   </div>
-                  <div className="hidden lg:block absolute left-0 top-1/2 w-32 h-0.5 bg-gradient-to-l from-transparent to-emerald-500 -translate-x-full z-0">
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]"></div>
+                  <div className="hidden lg:block absolute left-0 top-1/2 w-32 h-0.5 bg-gradient-to-l from-transparent to-secondary -translate-x-full z-0">
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_var(--secondary)]"></div>
                   </div>
                 </div>
 
                 <div className="bg-slate-50 rounded-full shadow-sm border border-slate-200 flex items-center flex-row-reverse pl-5 overflow-hidden relative group hover:shadow-lg transition-shadow duration-200 ease-out-strong">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-orange-400 to-amber-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-secondary to-primary flex items-center justify-center flex-shrink-0">
                     <Cloud className="w-7 h-7 text-white" />
                   </div>
                   <div className="pr-5 py-2 flex-1 text-right">
-                    <h4 className="font-black text-sm xl:whitespace-nowrap text-orange-500 mb-1">Phần mềm & số hóa</h4>
+                    <h4 className="font-black text-sm xl:whitespace-nowrap text-primary mb-1">Phần mềm & số hóa</h4>
                     <p className="text-xs text-slate-600 hidden md:block xl:whitespace-nowrap">Chữ ký số, hóa đơn điện tử, phần mềm quản lý.</p>
                   </div>
-                  <div className="hidden lg:block absolute left-0 top-1/2 w-48 h-0.5 bg-gradient-to-l from-transparent to-orange-500 -translate-x-full z-0">
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_10px_#f59e0b]"></div>
+                  <div className="hidden lg:block absolute left-0 top-1/2 w-48 h-0.5 bg-gradient-to-l from-transparent to-secondary -translate-x-full z-0">
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_var(--secondary)]"></div>
                   </div>
                 </div>
               </div>
@@ -432,9 +432,9 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
               {[
-                { title: "Tiếp nhận yêu cầu", desc: "Ghi nhận nhu cầu qua điện thoại hoặc trực tiếp.", icon: Search, color: "text-success", border: "group-hover:border-success", shadow: "shadow-success/30" },
-                { title: "Khảo sát & tư vấn", desc: "Khảo sát thực tế, đề xuất giải pháp phù hợp ngân sách.", icon: FileText, color: "text-primary", border: "group-hover:border-primary", shadow: "shadow-primary/30" },
-                { title: "Triển khai lắp đặt", desc: "Thi công đúng tiến độ cam kết, an toàn, gọn gàng.", icon: Wrench, color: "text-accent", border: "group-hover:border-accent", shadow: "shadow-accent/30" },
+                { title: "Tiếp nhận yêu cầu", desc: "Ghi nhận nhu cầu qua điện thoại hoặc trực tiếp.", icon: Search, color: "text-secondary", border: "group-hover:border-secondary", shadow: "shadow-secondary/30" },
+                { title: "Khảo sát & tư vấn", desc: "Khảo sát thực tế, đề xuất giải pháp phù hợp ngân sách.", icon: FileText, color: "text-secondary", border: "group-hover:border-secondary", shadow: "shadow-secondary/30" },
+                { title: "Triển khai lắp đặt", desc: "Thi công đúng tiến độ cam kết, an toàn, gọn gàng.", icon: Wrench, color: "text-secondary", border: "group-hover:border-secondary", shadow: "shadow-secondary/30" },
                 { title: "Nghiệm thu & hỗ trợ", desc: "Bàn giao, hướng dẫn và hỗ trợ kỹ thuật lâu dài.", icon: Handshake, color: "text-secondary", border: "group-hover:border-secondary", shadow: "shadow-secondary/30" }
               ].map((step, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center">
@@ -475,7 +475,7 @@ export default function Home() {
               <div className="p-5">
                 <h3 className="font-black text-lg text-primary mb-2 leading-snug">Bảo trì hệ thống máy chủ cho Doanh nghiệp quy mô lớn</h3>
                 <p className="text-slate-600 text-sm mb-4">Quản trị, kiểm tra an toàn định kỳ, tối ưu hóa hiệu năng hệ thống server và bảo đảm tính sẵn sàng cao (High Availability) phục vụ tác nghiệp doanh nghiệp 24/7.</p>
-                <div className="text-accent text-sm font-bold flex items-center gap-2 cursor-pointer ">
+                <div className="text-primary text-sm font-bold flex items-center gap-2 cursor-pointer ">
                   Xem chi tiết <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-out-strong group-hover:translate-x-1" />
                 </div>
               </div>
@@ -491,7 +491,7 @@ export default function Home() {
               <div className="p-5">
                 <h3 className="font-black text-lg text-primary mb-2 leading-snug">Thi công hệ thống an ninh cho Công ty Công nghệ APA</h3>
                 <p className="text-slate-600 text-sm mb-4">Triển khai hệ thống camera IP giám sát thông minh, kiểm soát an ninh đa tầng và lưu trữ dữ liệu tập trung phục vụ sản xuất công nghệ cao.</p>
-                <div className="text-accent text-sm font-bold flex items-center gap-2 cursor-pointer ">
+                <div className="text-primary text-sm font-bold flex items-center gap-2 cursor-pointer ">
                   Xem chi tiết <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-out-strong group-hover:translate-x-1" />
                 </div>
               </div>
@@ -507,7 +507,7 @@ export default function Home() {
               <div className="p-5">
                 <h3 className="font-black text-lg text-primary mb-2 leading-snug">Cung cấp, trang bị máy tính cho các trường học trên địa bàn</h3>
                 <p className="text-slate-600 text-sm mb-4">Cung cấp và lắp đặt đồng bộ phòng máy tính chuyên dụng, cấu hình mạng nội bộ và hỗ trợ kỹ thuật phục vụ công tác giảng dạy tin học.</p>
-                <div className="text-accent text-sm font-bold flex items-center gap-2 cursor-pointer ">
+                <div className="text-primary text-sm font-bold flex items-center gap-2 cursor-pointer ">
                   Xem chi tiết <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-out-strong group-hover:translate-x-1" />
                 </div>
               </div>
@@ -541,7 +541,7 @@ export default function Home() {
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/10" />
               <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">"Khu vực xưởng sản xuất công nghệ cao đòi hỏi camera bao quát góc rộng và quan sát rõ cả ban đêm. Các bạn thi công dây gọn gàng, hướng dẫn phần mềm xem trực tiếp trên điện thoại rất chi tiết, nhiệt tình."</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-accent to-red-600 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">N</div>
+                <div className="w-12 h-12 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">N</div>
                 <div>
                   <h4 className="font-bold text-white">Anh Hoàng Nam</h4>
                   <p className="text-sm text-slate-400">Phụ trách Vận hành, Công ty Công nghệ APA</p>
@@ -553,7 +553,7 @@ export default function Home() {
               <Quote className="absolute top-6 right-6 w-10 h-10 text-white/10" />
               <p className="text-slate-300 italic mb-8 relative z-10 leading-relaxed text-base">"Trường nâng cấp phòng máy tính cho học sinh thực hành, bên Phát Lộc giao máy đúng hẹn, cấu hình cài đặt sẵn đồng bộ. Khi phòng máy có phát sinh sự cố nhỏ là kỹ thuật hỗ trợ kiểm tra xử lý ngay."</p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-700 rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">H</div>
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-navy rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">H</div>
                 <div>
                   <h4 className="font-bold text-white">Thầy Lê Văn Hùng</h4>
                   <p className="text-sm text-slate-400">Phụ trách phòng Tin học trường học</p>
@@ -596,7 +596,7 @@ export default function Home() {
                 source="trang-chu"
                 notePlaceholder="Ví dụ: Cần lắp 8 camera cho nhà xưởng..."
                 submitLabel="Gửi Yêu Cầu Báo Giá"
-                buttonClassName="w-full py-6 text-lg font-bold bg-accent hover:bg-accent-hover text-white rounded-xl shadow-lg shadow-orange-500/30"
+                buttonClassName="w-full py-6 text-lg font-bold bg-accent hover:bg-accent-hover text-white rounded-xl shadow-lg shadow-accent/30"
               />
             </div>
 

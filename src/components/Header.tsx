@@ -23,12 +23,12 @@ export function Header() {
           </Link>
           <Link href="/#dich-vu" className="text-sm font-bold text-slate-600 hover:text-secondary transition-colors">Hệ sinh thái CNTT</Link>
           <Link href="/#du-an" className="text-sm font-bold text-slate-600 hover:text-secondary transition-colors">Dự án</Link>
-          <Link href="/contact" className="text-sm font-bold text-accent hover:text-accent-hover transition-colors">Liên hệ</Link>
+          <Link href="/contact" className="text-sm font-bold text-slate-600 hover:text-secondary transition-colors">Liên hệ</Link>
         </nav>
         <div className="flex items-center gap-3 md:gap-6">
           <div className="hidden md:flex flex-col text-right">
             <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Hotline 24/7</span>
-            <span className="text-lg font-black text-accent leading-none mt-1">0932 685 794</span>
+            <span className="text-lg font-black text-primary leading-none mt-1">0932 685 794</span>
           </div>
           <Link href="/contact" className="hidden sm:block">
             <Button className="bg-gradient-to-r from-secondary to-primary hover:opacity-90 text-white font-bold shadow-lg shadow-blue-500/30 border-0">

@@ -64,7 +64,7 @@ export default function ContactPage() {
                 {/* Profile Info */}
                 <div className="pt-20 px-8 pb-8">
                   <h2 className="text-2xl font-black text-primary mb-1">Nguyễn Thanh Phong</h2>
-                  <p className="text-accent font-bold text-sm uppercase tracking-wider mb-6">Giám Đốc / Người Sáng Lập</p>
+                  <p className="text-secondary font-bold text-sm uppercase tracking-wider mb-6">Giám Đốc / Người Sáng Lập</p>
                   
                   <div className="space-y-4 text-slate-600 text-sm leading-relaxed mb-8">
                     <p>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                   {/* Contact Direct */}
                   <div className="space-y-4">
                     <a href="tel:0932685794" className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group">
-                      <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
+                      <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
                         <Phone className="w-5 h-5" />
                       </div>
                       <div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-black text-primary">Văn phòng Phát Lộc Tech</h3>
                     <div className="flex items-center gap-2 mt-2 text-slate-500 text-sm">
-                      <MapPin className="w-4 h-4 text-accent" />
+                      <MapPin className="w-4 h-4 text-primary" />
                       <span>Số 491/1 Trường Chinh, P. Tân Bình, TP.HCM</span>
                     </div>
                   </div>
