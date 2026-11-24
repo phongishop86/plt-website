@@ -160,6 +160,27 @@ const INPUT_META: Partial<
   email: { placeholder: "email@congty.vn", type: "email", inputMode: "email", autoComplete: "email" },
 };
 
+/** Ô nhập tự do ở các bước chọn nhanh: dành cho câu hỏi ngoài kịch bản. */
+const FREE_META: {
+  placeholder: string;
+  type: string;
+  inputMode?: "tel" | "email" | "text";
+  autoComplete: string;
+} = {
+  placeholder: "Hoặc gõ câu hỏi của anh/chị…",
+  type: "text",
+  autoComplete: "off",
+};
+
+const OFFSCRIPT_REPLY =
+  "Câu hỏi này cần tư vấn viên trao đổi trực tiếp. Phát Lộc Tech sẽ liên lạc lại với anh/chị trong thời gian sớm nhất.";
+
+const wordCount = (v: string) => v.trim().split(/\s+/).filter(Boolean).length;
+
+/** Nội dung nhập ở bước hỏi họ tên / SĐT / email nhưng thực chất là một câu hỏi. */
+const looksOffScript = (step: Step, v: string) =>
+  v.includes("?") || wordCount(v) > (step === "name" ? 6 : 4);
+
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const reducedMotion = () =>
   typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -300,7 +321,7 @@ export function ChatBot() {
     setStep("service");
     void botSay([
       "Xin chào! Mình là trợ lý tư vấn của Phát Lộc Tech.",
-      "Anh/chị đang quan tâm đến hạng mục nào ạ?",
+      "Anh/chị chọn hạng mục đang quan tâm bên dưới, hoặc gõ câu hỏi bất kỳ để tư vấn viên liên hệ lại ạ.",
     ]);
   }, [botSay]);
 
@@ -407,6 +428,60 @@ export function ChatBot() {
     [botSay]
   );
 
+  /* Câu hỏi ngoài kịch bản ------------------------------------------ */
+  const sendFollowUp = useCallback(
+    async (l: Lead, question: string) => {
+      if (sendingRef.current) return;
+      sendingRef.current = true;
+      const note = [
+        `Câu hỏi bổ sung sau khi gửi yêu cầu: ${question}`,
+        l.scenario && `Nhu cầu trước đó: ${l.scenario}`,
+      ]
+        .filter(Boolean)
+        .join("\n");
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: l.name,
+            phone: l.phone,
+            email: l.email,
+            service: l.service || "Khác",
+            note,
+            source: "chatbot",
+            consent: true, // khách đã đồng ý ngay trong hội thoại này
+            website: "",
+          }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        await botSay([OFFSCRIPT_REPLY]);
+      } catch {
+        await botSay([
+          `Chưa chuyển được câu hỏi, có thể do kết nối. Anh/chị gọi hotline ${HOTLINE} hoặc nhắn Zalo giúp mình nhé.`,
+        ]);
+      } finally {
+        sendingRef.current = false;
+      }
+    },
+    [botSay]
+  );
+
+  const handleOffScript = (value: string) => {
+    addUser(value);
+    setDraft("");
+    if (step === "done") {
+      void sendFollowUp(lead, value);
+      return;
+    }
+    const merged = lead.detail ? `${lead.detail}\nCâu hỏi: ${value}` : `Câu hỏi: ${value}`;
+    const next = { ...lead, detail: merged.slice(0, 1500) };
+    setLead(next);
+    if (next.name && next.phone) go("consent", next, OFFSCRIPT_REPLY);
+    else if (next.name) go("phone", next, OFFSCRIPT_REPLY);
+    else go("name", next, OFFSCRIPT_REPLY);
+  };
+
   /* Chọn nhanh ------------------------------------------------------ */
   const choose = (label: string) => {
     if (typing) return;
@@ -504,9 +579,20 @@ export function ChatBot() {
   /* Nhập văn bản ---------------------------------------------------- */
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (typing || !TEXT_STEPS.includes(step)) return;
+    if (busy) return;
     const value = draft.trim();
     if (!value) return;
+
+    // Bước chọn nhanh (hoặc đã gửi xong): mọi nội dung gõ vào là câu hỏi ngoài kịch bản
+    if (!TEXT_STEPS.includes(step)) {
+      handleOffScript(value);
+      return;
+    }
+    // Đang hỏi tên / SĐT / email nhưng khách gõ một câu hỏi
+    if (step !== "detail" && looksOffScript(step, value) && !(step === "email" && isEmail(value))) {
+      handleOffScript(value);
+      return;
+    }
 
     if (step === "name" && (value.length < 2 || value.length > 80)) {
       addUser(value);
@@ -581,8 +667,8 @@ export function ChatBot() {
     default:
       chips = [];
   }
-  const showInput = TEXT_STEPS.includes(step);
-  const meta = INPUT_META[step];
+  const showInput = step !== "sending" && step !== "error" && step !== "declined";
+  const meta = INPUT_META[step] ?? FREE_META;
   const busy = typing || step === "sending";
 
   return (
