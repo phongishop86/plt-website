@@ -65,6 +65,31 @@ async function saveToSheet(lead: Lead): Promise<boolean> {
   }
 }
 
+// Kênh 3 (khuyên dùng, miễn phí): Google Apps Script Web App ghi Sheet và gửi email ngay.
+// Cần biến LEAD_WEBHOOK_URL (và LEAD_WEBHOOK_SECRET nếu đặt BI_MAT trong script).
+async function sendWebhook(lead: Lead): Promise<boolean> {
+  const { LEAD_WEBHOOK_URL, LEAD_WEBHOOK_SECRET } = process.env;
+  if (!LEAD_WEBHOOK_URL) return false;
+  try {
+    const res = await fetch(LEAD_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ ...lead, secret: LEAD_WEBHOOK_SECRET ?? "" }),
+      redirect: "follow",
+      signal: AbortSignal.timeout(10000),
+    });
+    const data = (await res.json().catch(() => null)) as { success?: unknown; error?: unknown } | null;
+    if (!res.ok || !data || data.success !== true) {
+      console.error("[contact] Apps Script từ chối:", res.status, data?.error ?? "không rõ lý do");
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.error("[contact] Lỗi gọi Apps Script:", error);
+    return false;
+  }
+}
+
 // Kênh 2: gửi email qua FormSubmit (gọi từ máy chủ, có giới hạn thời gian)
 async function sendEmail(lead: Lead): Promise<boolean> {
   try {
@@ -153,9 +178,9 @@ export async function POST(request: Request) {
   }
 
   // Chạy song song; chỉ cần 1 kênh thành công là đã nhận được yêu cầu
-  const [sheetOk, emailOk] = await Promise.all([saveToSheet(lead), sendEmail(lead)]);
+  const results = await Promise.all([sendWebhook(lead), saveToSheet(lead), sendEmail(lead)]);
 
-  if (!sheetOk && !emailOk) {
+  if (!results.some(Boolean)) {
     console.error("[contact] Không kênh nào nhận được yêu cầu:", {
       name: lead.name,
       phone: lead.phone,

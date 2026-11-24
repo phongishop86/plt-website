@@ -4,7 +4,8 @@
  * Cách dùng:
  * 1. Mở Google Sheet nhận yêu cầu > Tiện ích mở rộng > Apps Script, dán toàn bộ file này.
  * 2. Sửa NHAN_VIEN bên dưới thành email nhân viên (nhiều người cách nhau bằng dấu phẩy).
- * 3. Chạy hàm taoLichNhac một lần (cấp quyền khi được hỏi). Sau đó: baoKhachMoi chạy mỗi 5 phút
+ * 3. Triển khai Web app (xem doPost) và copy URL dán vào biến LEAD_WEBHOOK_URL trên Vercel.
+ * 4. Chạy hàm taoLichNhac một lần (cấp quyền khi được hỏi). Sau đó: baoKhachMoi chạy mỗi 5 phút
  *    (email báo khách mới), nhacLienHe chạy mỗi 30 phút (nhắc khách quá hạn).
  *
  * Cột Sheet (do website ghi): A Thời gian | B Họ tên | C SĐT | D Dịch vụ | E Nhu cầu
@@ -13,8 +14,32 @@
  * Dòng nào còn "Mới" quá hạn sẽ được nhắc, tối đa 1 lần mỗi 4 giờ, trong 08:00-18:00.
  */
 const NHAN_VIEN = "phatloctech.ltd@gmail.com";
+const BI_MAT = ""; // tùy chọn: đặt một chuỗi bí mật, rồi khai báo cùng giá trị ở LEAD_WEBHOOK_SECRET trên Vercel
 const TEN_SHEET = "Sheet1";
 const NHAC_LAI_SAU_GIO = 4;
+
+// Nhận yêu cầu từ website (Deploy > New deployment > Web app > Execute as: Me, Who has access: Anyone)
+function doPost(e) {
+  try {
+    const d = JSON.parse(e.postData.contents);
+    if (BI_MAT && d.secret !== BI_MAT) return json({ success: false, error: "unauthorized" });
+    if (!d.name || !d.phone) return json({ success: false, error: "missing" });
+    const sheet = SpreadsheetApp.getActive().getSheetByName(TEN_SHEET);
+    const now = Utilities.formatDate(new Date(), "Asia/Ho_Chi_Minh", "HH:mm:ss dd/MM/yyyy");
+    sheet.appendRow([now, d.name, d.phone, d.service, d.note, d.email, d.source, "Đồng ý xử lý dữ liệu: " + d.consentAt, "Mới", d.dueAt, "đã báo"]);
+    MailApp.sendEmail({
+      to: NHAN_VIEN,
+      subject: `[Phát Lộc Tech] Khách mới: ${d.name} (${d.phone}) - gọi trước ${d.dueAt}`,
+      body: `Họ tên: ${d.name}\nSĐT: ${d.phone}\nEmail: ${d.email || "(không)"}\nDịch vụ: ${d.service}\nNguồn: ${d.source}\nHạn liên hệ: ${d.dueAt}\n\n${d.note || ""}`,
+    });
+    return json({ success: true });
+  } catch (err) {
+    return json({ success: false, error: String(err) });
+  }
+}
+function json(o) {
+  return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON);
+}
 
 function taoLichNhac() {
   ScriptApp.getProjectTriggers().forEach((t) => ScriptApp.deleteTrigger(t));
