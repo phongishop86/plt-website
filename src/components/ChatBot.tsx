@@ -503,9 +503,15 @@ export function ChatBot() {
         await botSay([
           <div key="queued" className="space-y-3">
             <p>
-              Hệ thống đang bận nên chưa gửi ngay được, nhưng mình đã lưu thông tin của anh/chị{" "}
-              {lastName(l.name)} và sẽ tự gửi lại. Phát Lộc Tech sẽ chủ động liên hệ số{" "}
-              <strong>{l.phone}</strong> sớm nhất có thể.
+              Cảm ơn anh/chị {lastName(l.name)}, mình đã ghi nhận yêu cầu. Nhân viên Phát Lộc Tech sẽ
+              gọi số <strong>{l.phone}</strong>
+              {l.email ? (
+                <>
+                  {" "}
+                  và gửi thông tin chi tiết qua email <strong className="break-all">{l.email}</strong>
+                </>
+              ) : null}{" "}
+              sớm nhất có thể.
             </p>
             <p>Nếu cần gấp, anh/chị gọi hotline hoặc nhắn Zalo giúp mình nhé.</p>
             <div className="flex flex-wrap gap-2">
@@ -560,7 +566,7 @@ export function ChatBot() {
       } catch {
         enqueueLead(payload);
         await botSay([
-          `Mình đã ghi nhận câu hỏi và sẽ tự gửi lại. Phát Lộc Tech sẽ liên hệ anh/chị sớm nhất. Cần gấp, anh/chị gọi hotline ${HOTLINE} hoặc nhắn Zalo giúp mình nhé.`,
+          `Mình đã ghi nhận câu hỏi. Nhân viên Phát Lộc Tech sẽ liên hệ anh/chị sớm nhất. Cần gấp, anh/chị gọi hotline ${HOTLINE} hoặc nhắn Zalo giúp mình nhé.`,
         ]);
       } finally {
         sendingRef.current = false;
