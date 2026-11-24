@@ -9,7 +9,7 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
-import { MessageCircle, Phone, RotateCcw, Send, X } from "lucide-react";
+import { Phone, RotateCcw, Send, X } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /* Nội dung kịch bản                                                   */
@@ -193,6 +193,17 @@ const lastName = (full: string) => full.trim().split(/\s+/).slice(-1)[0] ?? full
 /* ------------------------------------------------------------------ */
 /* Thành phần                                                          */
 /* ------------------------------------------------------------------ */
+
+function BotAvatar({ show }: { show: boolean }) {
+  return (
+    <span className="h-7 w-7 shrink-0" aria-hidden="true">
+      {show && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src="/chatbot/plt-bot-head.webp" alt="" width={56} height={56} className="h-7 w-7 rounded-full bg-white object-contain ring-1 ring-slate-200" />
+      )}
+    </span>
+  );
+}
 
 function Summary({ lead }: { lead: Lead }) {
   const rows: [string, string][] = [
@@ -680,13 +691,18 @@ export function ChatBot() {
         aria-expanded={open}
         aria-controls="plt-chatbot"
         aria-label={open ? "Đóng trợ lý tư vấn" : "Mở trợ lý tư vấn"}
-        className="w-14 h-14 bg-gradient-to-br from-secondary to-primary text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(6,147,227,0.4)] hover:scale-105 active:scale-95 transition-transform duration-200 ease-out-strong group relative"
+        className="w-14 h-14 bg-gradient-to-br from-secondary to-primary text-white rounded-full overflow-visible flex items-center justify-center shadow-[0_0_20px_rgba(6,147,227,0.4)] hover:scale-105 active:scale-95 transition-transform duration-200 ease-out-strong group relative"
       >
         <span className="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-lg text-sm font-bold opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:delay-150 group-focus-visible:opacity-100 group-focus-visible:translate-x-0 transition-[opacity,transform] duration-150 ease-out-strong whitespace-nowrap shadow-lg pointer-events-none">
           Chat tư vấn nhanh
         </span>
-        <MessageCircle
-          className={`absolute h-6 w-6 transition-[opacity,transform,filter] duration-200 ease-out-strong ${
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/chatbot/plt-bot-head.webp"
+          alt=""
+          width={80}
+          height={80}
+          className={`absolute h-[3.25rem] w-[3.25rem] object-contain transition-[opacity,transform,filter] duration-200 ease-out-strong ${
             open ? "scale-50 opacity-0 blur-[2px]" : "scale-100 opacity-100 blur-0"
           }`}
         />
@@ -706,8 +722,9 @@ export function ChatBot() {
           className="dialog-motion fixed z-[60] right-3 bottom-[10.5rem] w-[calc(100vw-1.5rem)] sm:right-6 sm:w-[390px] h-[min(34rem,calc(100dvh-11.5rem))] origin-bottom-right flex flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-200"
         >
           <header className="flex items-center gap-3 bg-gradient-to-r from-primary to-navy px-4 py-3 text-white">
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/15">
-              <MessageCircle className="h-5 w-5" />
+            <div className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-white/15">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/chatbot/plt-bot-head.webp" alt="" width={80} height={80} className="h-full w-full object-contain" />
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-bold leading-tight">Trợ lý Phát Lộc Tech</p>
@@ -737,13 +754,16 @@ export function ChatBot() {
             aria-live="polite"
             className="flex-1 space-y-3 overflow-y-auto bg-slate-50 px-4 py-4 text-sm"
           >
-            {msgs.map((m) => (
+            {msgs.map((m, i) => (
               <div
                 key={m.id}
-                className={`chat-msg flex ${m.from === "user" ? "justify-end" : "justify-start"}`}
+                className={`chat-msg flex items-end gap-2 ${m.from === "user" ? "justify-end" : "justify-start"}`}
               >
+                {m.from !== "user" && (
+                  <BotAvatar show={i === msgs.length - 1 || msgs[i + 1].from === "user"} />
+                )}
                 <div
-                  className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 leading-relaxed ${
+                  className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 leading-relaxed ${
                     m.from === "user"
                       ? "rounded-br-md bg-primary text-white"
                       : "rounded-bl-md bg-white text-slate-800 shadow-sm ring-1 ring-slate-200"
@@ -754,7 +774,8 @@ export function ChatBot() {
               </div>
             ))}
             {typing && (
-              <div className="chat-msg flex justify-start" aria-label="Trợ lý đang nhập">
+              <div className="chat-msg flex items-end gap-2 justify-start" aria-label="Trợ lý đang nhập">
+                <BotAvatar show />
                 <div className="flex gap-1 rounded-2xl rounded-bl-md bg-white px-4 py-3 shadow-sm ring-1 ring-slate-200">
                   <span className="typing-dot h-1.5 w-1.5 rounded-full bg-slate-400" />
                   <span className="typing-dot h-1.5 w-1.5 rounded-full bg-slate-400" />
