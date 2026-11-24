@@ -4,10 +4,11 @@
  * Cách dùng:
  * 1. Mở Google Sheet nhận yêu cầu > Tiện ích mở rộng > Apps Script, dán toàn bộ file này.
  * 2. Sửa NHAN_VIEN bên dưới thành email nhân viên (nhiều người cách nhau bằng dấu phẩy).
- * 3. Chạy hàm taoLichNhac một lần (cấp quyền khi được hỏi). Sau đó script tự chạy mỗi 30 phút.
+ * 3. Chạy hàm taoLichNhac một lần (cấp quyền khi được hỏi). Sau đó: baoKhachMoi chạy mỗi 5 phút
+ *    (email báo khách mới), nhacLienHe chạy mỗi 30 phút (nhắc khách quá hạn).
  *
  * Cột Sheet (do website ghi): A Thời gian | B Họ tên | C SĐT | D Dịch vụ | E Nhu cầu
- * F Email | G Nguồn | H Đồng ý dữ liệu | I Trạng thái | J Hạn liên hệ
+ * F Email | G Nguồn | H Đồng ý dữ liệu | I Trạng thái | J Hạn liên hệ | K Đã báo (script tự ghi)
  * Nhân viên liên hệ xong thì đổi cột I từ "Mới" thành "Đã liên hệ" (hoặc "Đã báo giá").
  * Dòng nào còn "Mới" quá hạn sẽ được nhắc, tối đa 1 lần mỗi 4 giờ, trong 08:00-18:00.
  */
@@ -18,6 +19,27 @@ const NHAC_LAI_SAU_GIO = 4;
 function taoLichNhac() {
   ScriptApp.getProjectTriggers().forEach((t) => ScriptApp.deleteTrigger(t));
   ScriptApp.newTrigger("nhacLienHe").timeBased().everyMinutes(30).create();
+  ScriptApp.newTrigger("baoKhachMoi").timeBased().everyMinutes(5).create();
+}
+
+// Báo ngay (trong vòng 5 phút) cho nhân viên khi có khách mới, không cần FormSubmit.
+// Dùng cột K để đánh dấu dòng đã báo ("đã báo").
+function baoKhachMoi() {
+  const sheet = SpreadsheetApp.getActive().getSheetByName(TEN_SHEET);
+  const rows = sheet.getDataRange().getValues();
+  const moi = [];
+  for (let i = 1; i < rows.length; i++) {
+    const [tg, ten, sdt, dichVu, nhuCau, email, nguon, , trangThai, han, daBao] = rows[i];
+    if (String(trangThai).trim() !== "Mới" || daBao) continue;
+    moi.push({ dong: i + 1, text: `${ten} - ${sdt} - ${dichVu}\nEmail: ${email || "(không)"} | Nguồn: ${nguon} | Nhập lúc: ${tg} | Gọi trước: ${han}\n${String(nhuCau).replace(/\n/g, " | ")}` });
+  }
+  if (!moi.length) return;
+  MailApp.sendEmail({
+    to: NHAN_VIEN,
+    subject: `[Phát Lộc Tech] Khách mới: ${moi.length} yêu cầu cần liên hệ`,
+    body: moi.map((m) => m.text).join("\n\n") + "\n\nMở Google Sheet để cập nhật cột I sau khi liên hệ.",
+  });
+  moi.forEach((m) => sheet.getRange(m.dong, 11).setValue("đã báo"));
 }
 
 function nhacLienHe() {
