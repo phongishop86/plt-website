@@ -9,7 +9,7 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
-import { Phone, RotateCcw, Send, X } from "lucide-react";
+import { Phone, Send, X } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /* Nội dung kịch bản                                                   */
@@ -194,6 +194,65 @@ const lastName = (full: string) => full.trim().split(/\s+/).slice(-1)[0] ?? full
 /* Thành phần                                                          */
 /* ------------------------------------------------------------------ */
 
+/* Hàng đợi gửi lại: khi mạng/máy chủ lỗi, lưu tạm trên máy khách và tự gửi lại. */
+type Payload = Record<string, unknown>;
+const QUEUE_KEY = "plt-lead-queue";
+const QUEUE_TTL = 24 * 60 * 60 * 1000;
+const QUEUE_MAX = 5;
+
+function readQueue(): (Payload & { queuedAt: number })[] {
+  try {
+    const raw = JSON.parse(localStorage.getItem(QUEUE_KEY) ?? "[]");
+    if (!Array.isArray(raw)) return [];
+    return raw.filter((p) => p && typeof p.queuedAt === "number" && Date.now() - p.queuedAt < QUEUE_TTL);
+  } catch {
+    return [];
+  }
+}
+function writeQueue(q: Payload[]) {
+  try {
+    if (q.length) localStorage.setItem(QUEUE_KEY, JSON.stringify(q.slice(-QUEUE_MAX)));
+    else localStorage.removeItem(QUEUE_KEY);
+  } catch {
+    /* bộ nhớ bị chặn: bỏ qua, khách vẫn có hotline */
+  }
+}
+async function postLead(p: Payload): Promise<boolean> {
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(p),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+function enqueueLead(p: Payload) {
+  const when = new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" });
+  const note = `${typeof p.note === "string" ? p.note : ""}\n(Khách nhập lúc ${when}; hệ thống gửi lại tự động)`.trim();
+  writeQueue([...readQueue(), { ...p, note, queuedAt: Date.now() }]);
+}
+let flushing = false;
+async function flushQueue() {
+  if (flushing) return;
+  flushing = true;
+  try {
+    const q = readQueue();
+    if (!q.length) return;
+    const left: Payload[] = [];
+    for (const item of q) {
+      const { queuedAt, ...payload } = item;
+      void queuedAt;
+      if (!(await postLead(payload))) left.push(item);
+    }
+    writeQueue(left);
+  } finally {
+    flushing = false;
+  }
+}
+
 function BotAvatar({ show }: { show: boolean }) {
   return (
     <span className="h-7 w-7 shrink-0" aria-hidden="true">
@@ -367,6 +426,20 @@ export function ChatBot() {
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: reducedMotion() ? "auto" : "smooth" });
   }, [msgs, typing, step]);
 
+  // Gửi lại các yêu cầu còn tồn: khi tải trang, khi có mạng lại, và mỗi phút
+  useEffect(() => {
+    void flushQueue();
+    const onOnline = () => void flushQueue();
+    window.addEventListener("online", onOnline);
+    const id = setInterval(() => {
+      if (readQueue().length) void flushQueue();
+    }, 60_000);
+    return () => {
+      window.removeEventListener("online", onOnline);
+      clearInterval(id);
+    };
+  }, []);
+
   useEffect(() => {
     if (open && !typing && TEXT_STEPS.includes(step)) inputRef.current?.focus();
   }, [open, typing, step]);
@@ -385,22 +458,18 @@ export function ChatBot() {
       ]
         .filter(Boolean)
         .join("\n");
+      const payload: Payload = {
+        name: l.name,
+        phone: l.phone,
+        email: l.email,
+        service: l.service || "Khác",
+        note,
+        source: "chatbot",
+        consent: true,
+        website: "",
+      };
       try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: l.name,
-            phone: l.phone,
-            email: l.email,
-            service: l.service || "Khác",
-            note,
-            source: "chatbot",
-            consent: true,
-            website: "",
-          }),
-        });
-        if (!res.ok) throw new Error(String(res.status));
+        if (!(await postLead(payload))) throw new Error("send");
         setStep("done");
         await botSay([
           <div key="ok" className="space-y-3">
@@ -428,9 +497,34 @@ export function ChatBot() {
           </div>,
         ]);
       } catch {
-        setStep("error");
+        // Chưa gửi được: lưu tạm, tự gửi lại, và báo khách công ty sẽ chủ động liên hệ
+        enqueueLead(payload);
+        setStep("done");
         await botSay([
-          `Chưa gửi được yêu cầu, có thể do kết nối. Anh/chị thử gửi lại hoặc gọi hotline ${HOTLINE} giúp mình nhé.`,
+          <div key="queued" className="space-y-3">
+            <p>
+              Hệ thống đang bận nên chưa gửi ngay được, nhưng mình đã lưu thông tin của anh/chị{" "}
+              {lastName(l.name)} và sẽ tự gửi lại. Phát Lộc Tech sẽ chủ động liên hệ số{" "}
+              <strong>{l.phone}</strong> sớm nhất có thể.
+            </p>
+            <p>Nếu cần gấp, anh/chị gọi hotline hoặc nhắn Zalo giúp mình nhé.</p>
+            <div className="flex flex-wrap gap-2">
+              <a
+                href={HOTLINE_TEL}
+                className="inline-flex min-h-10 items-center gap-2 rounded-full bg-accent px-4 text-sm font-bold text-white transition-transform duration-150 ease-out-strong active:scale-95"
+              >
+                <Phone className="h-4 w-4" /> {HOTLINE}
+              </a>
+              <a
+                href={ZALO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center rounded-full bg-zalo px-4 text-sm font-bold text-white transition-transform duration-150 ease-out-strong active:scale-95"
+              >
+                Nhắn Zalo
+              </a>
+            </div>
+          </div>,
         ]);
       } finally {
         sendingRef.current = false;
@@ -450,26 +544,23 @@ export function ChatBot() {
       ]
         .filter(Boolean)
         .join("\n");
+      const payload: Payload = {
+        name: l.name,
+        phone: l.phone,
+        email: l.email,
+        service: l.service || "Khác",
+        note,
+        source: "chatbot",
+        consent: true, // khách đã đồng ý ngay trong hội thoại này
+        website: "",
+      };
       try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: l.name,
-            phone: l.phone,
-            email: l.email,
-            service: l.service || "Khác",
-            note,
-            source: "chatbot",
-            consent: true, // khách đã đồng ý ngay trong hội thoại này
-            website: "",
-          }),
-        });
-        if (!res.ok) throw new Error(String(res.status));
+        if (!(await postLead(payload))) throw new Error("send");
         await botSay([OFFSCRIPT_REPLY]);
       } catch {
+        enqueueLead(payload);
         await botSay([
-          `Chưa chuyển được câu hỏi, có thể do kết nối. Anh/chị gọi hotline ${HOTLINE} hoặc nhắn Zalo giúp mình nhé.`,
+          `Mình đã ghi nhận câu hỏi và sẽ tự gửi lại. Phát Lộc Tech sẽ liên hệ anh/chị sớm nhất. Cần gấp, anh/chị gọi hotline ${HOTLINE} hoặc nhắn Zalo giúp mình nhé.`,
         ]);
       } finally {
         sendingRef.current = false;
@@ -719,7 +810,7 @@ export function ChatBot() {
           role="dialog"
           aria-label="Trợ lý tư vấn Phát Lộc Tech"
           data-closing={closing}
-          className="dialog-motion fixed z-[60] right-3 bottom-[10.5rem] w-[calc(100vw-1.5rem)] sm:right-6 sm:w-[390px] h-[min(34rem,calc(100dvh-11.5rem))] origin-bottom-right flex flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-200"
+          className="dialog-motion fixed z-[60] right-3 bottom-24 w-[calc(100vw-1.5rem)] sm:right-6 sm:w-[390px] h-[min(34rem,calc(100dvh-7.5rem))] origin-bottom-right flex flex-col overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-200"
         >
           <header className="flex items-center gap-3 bg-gradient-to-r from-primary to-navy px-4 py-3 text-white">
             <div className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-white/15">
@@ -730,14 +821,13 @@ export function ChatBot() {
               <p className="text-sm font-bold leading-tight">Trợ lý Phát Lộc Tech</p>
               <p className="text-xs text-blue-100">Tư vấn viên sẽ gọi lại sau khi nhận thông tin</p>
             </div>
-            <button
-              type="button"
-              onClick={begin}
-              aria-label="Bắt đầu lại cuộc trò chuyện"
-              className="grid h-10 w-10 place-items-center rounded-full text-white/80 transition-[background-color,transform] duration-150 ease-out-strong hover:bg-white/10 active:scale-95"
+            <a
+              href={HOTLINE_TEL}
+              aria-label={`Gọi hotline ${HOTLINE}`}
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent text-white transition-[background-color,transform] duration-150 ease-out-strong hover:bg-accent-hover active:scale-95"
             >
-              <RotateCcw className="h-4 w-4" />
-            </button>
+              <Phone className="h-4 w-4" />
+            </a>
             <button
               type="button"
               onClick={closePanel}
@@ -850,7 +940,11 @@ export function ChatBot() {
                 rel="noopener noreferrer"
               >
                 nhắn Zalo
-              </a>
+              </a>{" "}
+              ·{" "}
+              <button type="button" onClick={begin} className="font-semibold text-slate-600 underline underline-offset-2">
+                làm lại
+              </button>
             </p>
           </div>
         </section>

@@ -5,6 +5,9 @@ export const runtime = "nodejs";
 
 const LEAD_EMAIL = "phatloctech.ltd@gmail.com";
 const SITE_ORIGIN = "https://www.phatloctech.vn";
+const FOLLOW_UP_HOURS = 2; // hạn nhân viên phải liên hệ khách
+
+const vnTime = (d: Date) => d.toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" });
 
 type Lead = {
   name: string;
@@ -14,6 +17,7 @@ type Lead = {
   note: string;
   source: string;
   consentAt: string;
+  dueAt: string;
 };
 
 const clip = (v: unknown, max: number) =>
@@ -35,12 +39,12 @@ async function saveToSheet(lead: Lead): Promise<boolean> {
     const sheets = google.sheets({ auth, version: "v4" });
     await sheets.spreadsheets.values.append({
       spreadsheetId: GOOGLE_SHEET_ID,
-      range: "Sheet1!A1:H1",
+      range: "Sheet1!A1:J1",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
           [
-            new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }),
+            vnTime(new Date()),
             lead.name,
             lead.phone,
             lead.service,
@@ -48,6 +52,8 @@ async function saveToSheet(lead: Lead): Promise<boolean> {
             lead.email,
             lead.source,
             `Đồng ý xử lý dữ liệu: ${lead.consentAt}`,
+            "Mới", // I: Trạng thái (nhân viên đổi thành "Đã liên hệ" / "Đã báo giá")
+            lead.dueAt, // J: Hạn liên hệ
           ],
         ],
       },
@@ -71,7 +77,7 @@ async function sendEmail(lead: Lead): Promise<boolean> {
         Referer: `${SITE_ORIGIN}/`,
       },
       body: JSON.stringify({
-        _subject: `[Phát Lộc Tech] Yêu cầu tư vấn mới - ${lead.name} (${lead.phone})`,
+        _subject: `[Phát Lộc Tech] Yêu cầu tư vấn mới - ${lead.name} (${lead.phone}) - cần gọi trước ${lead.dueAt}`,
         _template: "table",
         _captcha: "false",
         "Họ và Tên": lead.name,
@@ -81,11 +87,18 @@ async function sendEmail(lead: Lead): Promise<boolean> {
         "Chi tiết nhu cầu": lead.note || "(không nhập)",
         "Gửi từ": lead.source,
         "Đồng ý xử lý dữ liệu": lead.consentAt,
+        "Hạn liên hệ khách": lead.dueAt,
       }),
       signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) {
       console.error("[contact] FormSubmit trả về", res.status);
+      return false;
+    }
+    // FormSubmit có thể trả 200 nhưng báo chưa kích hoạt / bị từ chối trong nội dung
+    const data = (await res.json().catch(() => null)) as { success?: unknown; message?: unknown } | null;
+    if (!data || String(data.success) !== "true") {
+      console.error("[contact] FormSubmit từ chối:", data?.message ?? "không rõ lý do");
       return false;
     }
     return true;
@@ -116,7 +129,8 @@ export async function POST(request: Request) {
   }
 
   const lead: Lead = {
-    consentAt: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }),
+    consentAt: vnTime(new Date()),
+    dueAt: vnTime(new Date(Date.now() + FOLLOW_UP_HOURS * 3600_000)),
     name: clip(body.name, 120),
     phone: clip(body.phone, 30),
     email: clip(body.email, 120),
